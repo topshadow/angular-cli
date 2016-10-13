@@ -1,3 +1,9 @@
 <h1>
-  {{title}}
+	{{title}}
 </h1>
+<button class="btn">btn</button>
+<ul>
+	<li *ngFor="let doc of docs  | async">
+{{doc | json}}
+	</li>
+</ul>
