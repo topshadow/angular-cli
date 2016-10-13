@@ -5,8 +5,10 @@ import { enableProdMode } from '@angular/core';
 import { environment } from './environments/environment';
 import { AppModule } from './app/';
 
+declare var $:JQuery;
 if (environment.production) {
   enableProdMode();
 }
 
+console.log($);
 platformBrowserDynamic().bootstrapModule(AppModule);

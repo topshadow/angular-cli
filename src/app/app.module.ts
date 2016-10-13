@@ -4,6 +4,7 @@ import {FormsModule }from '@angular/forms';
 import {HttpModule }from '@angular/http'; 
 
 import {AngularFireModule}from 'angularfire2'; 
+import {MaterialModule}from '../lib/all/index'; 
 
 import {AppComponent }from './app.component'; 
 
@@ -15,7 +16,8 @@ storageBucket:"topshadow-accda.appspot.com",
 messagingSenderId:"1069236481103"
 }
 
-@NgModule( {
+
+@NgModule({
 declarations:[
     AppComponent
   ], 
@@ -23,7 +25,8 @@ imports:[
     BrowserModule, 
 FormsModule, 
 HttpModule, 
-AngularFireModule.initializeApp(firebaseConfig)
+AngularFireModule.initializeApp(firebaseConfig), 
+MaterialModule.forRoot()
 ], 
 providers:[], 
 bootstrap:[AppComponent]

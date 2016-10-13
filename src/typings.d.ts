@@ -5,3 +5,6 @@
 declare var System:any;
 declare var require:any;
 declare var module:any;
+interface JQuery {
+    chosen(options?:any):JQuery;
+}    
