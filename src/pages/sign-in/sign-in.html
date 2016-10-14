@@ -1,0 +1,28 @@
+<ion-header>
+	<ion-navbar>
+		<button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+		<ion-title>登录界面</ion-title>
+	</ion-navbar>
+</ion-header>
+
+<ion-content>
+	<ion-list>
+		<ion-item>
+			<ion-avatar item-left>
+				<img src="">
+			</ion-avatar>
+			<ion-label floating>用户名</ion-label>
+			<ion-input type="text" [(ngModel)]="user.username"></ion-input>
+		</ion-item>
+		<ion-item>
+			<ion-avatar item-left>
+				<img src="">
+			</ion-avatar>
+			<ion-label floating>密码</ion-label>
+			<ion-input type="password" [(ngModel)]="user.password"></ion-input>
+		</ion-item>
+	</ion-list>
+	<button ion-button block (click)="signIn()">登录</button>
+</ion-content>

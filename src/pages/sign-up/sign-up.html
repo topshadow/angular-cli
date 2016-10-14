@@ -1,0 +1,44 @@
+<ion-header>
+	<ion-navbar>
+		<button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+		<ion-title>注册界面</ion-title>
+	</ion-navbar>
+</ion-header>
+
+<ion-content>
+	<ion-list>
+		<ion-item>
+			<ion-icon name="heart" item-left><span style="font-size:18px;">用户名</span></ion-icon>
+			<ion-input [(ngModel)]="user.username" (blur)="checkUsername()"></ion-input>
+		</ion-item>
+		<ion-item>
+			<ion-icon name="heart" item-left><span style="font-size:18px;">昵称</span></ion-icon>
+			<ion-input [(ngModel)]="user.nickname"></ion-input>
+		</ion-item>
+		<ion-item>
+			<ion-icon name="heart" item-left><span style="font-size:18px;">密码</span> </ion-icon>
+			<ion-input type="password" [(ngModel)]="user.password"></ion-input>
+		</ion-item>
+		<ion-item>
+			<ion-icon name="heart" item-left>
+				<span style="font-size:18px;">重复密码</span>
+			</ion-icon>
+			<ion-input type="password" (change)="checkPassword(repeatPasswordInput.value)" #repeatPasswordInput></ion-input>
+		</ion-item>
+		<ion-item>
+			<ion-label>出生日期</ion-label>
+			<ion-datetime displayFormat="YYYY年/MM月/DD日" pickerFormat="YYYY/MM/DD A" [(ngModel)]="user.birthday"></ion-datetime>
+		</ion-item>
+		<ion-item>
+			<ion-label>性别</ion-label>
+			<ion-select [(ngModel)]="user.gender">
+				<ion-option value="man">男</ion-option>
+				<ion-option value="woman">女</ion-option>
+			</ion-select>
+
+		</ion-item>
+	</ion-list>
+	<button ion-button block (click)="signUp()">注册</button>
+</ion-content>

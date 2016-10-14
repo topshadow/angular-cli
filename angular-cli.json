@@ -15,10 +15,11 @@
       "prefix": "app",
       "mobile": false,
       "styles": [
-        "styles.css"
+        "styles.css",
+        "../node_modules/ionic-angular/css/ionic.min.css"
       ],
       "scripts": [
-        "../node_modules/hammerjs/hammer.min.js"
+    
       ],
       "environments": {
         "source": "environments/environment.ts",
