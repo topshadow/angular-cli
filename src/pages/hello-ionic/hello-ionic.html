@@ -14,24 +14,14 @@
 
 	<h3>Welcome to your first Ionic app!</h3>
 
-
-	<div [dragula]='"first-bag"'>
-		<div>1</div>
-		<div>2</div>
-		<div>3</div>
+	<div [dragula]='"drag-part"' [dragulaModel]="parts" class="col-xs-6">
+		<img *ngFor="let part of parts" class="img-responsive" [src]="part.picture">
 	</div>
-	<ion-grid>
-		<ion-row>
-			<div [dragula]='"drag-part"' [dragulaModel]="parts" class="col-xs-6">
-				<img *ngFor="let part of parts" class="img-responsive" [src]="part.picture">
-			</div>
 
-			<div [dragula]='"drag-part"' [dragulaModel]="optionParts" class="col-xs-6">
-				<img *ngFor="let optionPart of optionParts" class="img-responsive" [src]="optionPart.picture">
+	<div [dragula]='"drag-part"' [dragulaModel]="optionParts" class="col-xs-6">
+		<img *ngFor="let optionPart of optionParts" class="img-responsive" [src]="optionPart.picture">
 
-			</div>
+	</div>
 
-		</ion-row>
-	</ion-grid>
 
 </ion-content>
