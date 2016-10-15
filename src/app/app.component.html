@@ -20,102 +20,107 @@
 <ion-menu [content]="content" id="login">
 	<ion-content>
 		<ion-list no-border>
+			<ion-item *ngIf="user">
+				<ion-avatar item-left>
+					<img src="http://ionicframework.com/dist/preview-app/www/assets/img/thumbnail-totoro.png">
+				</ion-avatar>
+				<h2>{{user.username}}</h2>
+				<p>个性签名</p>
+				<button ion-button clear item-right>修改</button>
+			</ion-item>
+
 
 			<ion-list-header>
-				Classes
+				美站
 			</ion-list-header>
 
-			<ion-item (click)="openTemplateShop()">
+			<button ion-item (click)="openPage(loginPages[0])">
 				<ion-icon name='planet' item-left></ion-icon>
-				模板商城
+				美站欣赏
 				<ion-note item-right>
 					<ion-badge color="secondary">99+</ion-badge>
 				</ion-note>
-			</ion-item>
+			</button>
 
 			<ion-item>
 				<ion-toggle checked="false"></ion-toggle>
 				<ion-label>
-					Muggle Studies
+					友站
 				</ion-label>
 				<ion-icon name='body' item-left></ion-icon>
 			</ion-item>
 
 			<ion-item>
 				<ion-icon name='leaf' item-left></ion-icon>
-				Herbology
-				<ion-icon name='rose' item-right color="secondary"></ion-icon>
+				模块编辑
+				<ion-note item-right>
+					<ion-badge color="secondary">99+</ion-badge>
+				</ion-note>
 			</ion-item>
 
 			<ion-item>
 				<ion-icon name='flask' item-left></ion-icon>
-				Potions
+				荣誉排名
 				<ion-note item-right>
-					Poisonous
+					14
 				</ion-note>
 			</ion-item>
-
-
-
 		</ion-list>
 
 
 		<ion-list>
-
 			<ion-list-header>
-				Activities
+				管理
 			</ion-list-header>
-
 			<ion-item>
-				Incantation
+				我的文件
 				<ion-icon name='color-wand' item-left></ion-icon>
-				<ion-note item-right>Crucio!</ion-note>
+				<ion-note item-right>
+					<ion-badge color="secondary">99+</ion-badge>
+				</ion-note>
 			</ion-item>
-
-			<ion-item>
-				<ion-toggle checked="true"></ion-toggle>
+			<button ion-item (click)="openPage(loginPages[1])">
+			
 				<ion-label>
-					Quidditch Practice
+					我的站点
 				</ion-label>
 				<ion-icon name='brush' item-left></ion-icon>
-			</ion-item>
-
-
+			</button>
 			<ion-item>
 				<ion-icon name='wine' item-left></ion-icon>
-				Mead Drinking
-				<ion-note item-right>Yes please</ion-note>
+				域名管理
+				<ion-note item-right>
+					<ion-badge color="secondary">99+</ion-badge>
+				</ion-note>
 			</ion-item>
-
-
 		</ion-list>
 
+
 		<ion-list>
-
-			<ion-list-header>
-				Friends
-			</ion-list-header>
-
+			<ion-item>
+				<ion-icon name='beer' item-left></ion-icon>
+				个人信息
+				<ion-note item-right>修改</ion-note>
+			</ion-item>
 			<ion-item>
 				<ion-icon name='flash' item-left></ion-icon>
-				Harry
-				<ion-note item-right>The boy who lived</ion-note>
+				插件商城
+				<ion-note item-right></ion-note>
 			</ion-item>
+
+
+			<ion-list-header>
+				系统设置
+			</ion-list-header>
 
 			<ion-item>
 				<ion-icon name='book' item-left></ion-icon>
-				Hermoine
+				帮助
 				<ion-note item-right>Muggle-born</ion-note>
 			</ion-item>
 
-			<ion-item>
-				<ion-icon name='beer' item-left></ion-icon>
-				Ron
-				<ion-note item-right>Brilliant!</ion-note>
-			</ion-item>
-
-
 		</ion-list>
+
 	</ion-content>
 </ion-menu>
 

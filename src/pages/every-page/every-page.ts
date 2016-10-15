@@ -15,7 +15,6 @@ export class EveryPage {
             if (user.password == password) {
                 this.user = this.user
 
-                debugger;
             } else {
                 alert('用户错误');
             }

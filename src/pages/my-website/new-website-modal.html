@@ -1,0 +1,32 @@
+<ion-header>
+	<ion-toolbar>
+		<ion-title>
+			新建站点
+		</ion-title>
+		<ion-buttons start>
+			<button ion-button (click)="dismiss()">
+        <span color="primary" >返回</span>
+        
+      </button>
+		</ion-buttons>
+
+	</ion-toolbar>
+</ion-header>
+
+<ion-content>
+	<ion-list>
+		<ion-item>
+			<ion-label floating>站点名称</ion-label>
+			<ion-input type="text" [(ngModel)]="newWebsite.name"></ion-input>
+		</ion-item>
+		<ion-item>
+			<ion-label floating>站点简述</ion-label>
+			<ion-textarea [(ngModel)]="newWebsite.description"></ion-textarea>
+		</ion-item>
+		<ion-item>
+			<ion-label floating>二级域名:例如:hello</ion-label>
+			<ion-input [(ngModel)]="newWebsite.SLD"></ion-input>
+		</ion-item>
+	</ion-list>
+	<button ion-button full round color="primary" (click)="addNewWebsite();dissmiss()">添加</button>
+</ion-content>

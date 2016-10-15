@@ -25,3 +25,18 @@ interface User {
     websites?: any[];
 
 }
+
+interface Website {
+    name: string;
+    description: string;
+    // 二级域名
+    SLD: string;
+    data: any;
+    // 数字,方便比较和上传
+    createDt: number;
+}
+
+
+interface Part {
+    picture: string;
+}

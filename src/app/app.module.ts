@@ -1,14 +1,32 @@
-
-
-
-import { SignInPage, ListPage, ItemDetailsPage, HelloIonicPage, SignUpPage, EveryPage, EveryPagePreview, TemplateShop } from '../pages/index';
+import { NumberDatePip, BackgroundImageDirective } from '../tools';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { IonicApp, IonicModule, NavController, NavParams } from 'ionic-angular';
 import { AngularFireModule } from 'angularfire2';
+import { DragulaModule } from 'ng2-dragula/ng2-dragula';
+
+
 import { MyApp } from './app.component';
+import { Theme1Navbar } from '../themes/index';
+
+
+import {
+    SignInPage,
+    ListPage,
+    ItemDetailsPage,
+    HelloIonicPage,
+    SignUpPage,
+    EveryPage,
+    EveryPagePreview,
+    TemplateShop,
+    MyWebsitePage,
+    NewWebsiteModal,
+    ViewWebsitePage,
+    EditWebsitePage
+} from '../pages/index';
+
 
 
 export const firebaseConfig = {
@@ -28,17 +46,32 @@ export const firebaseConfig = {
         ItemDetailsPage,
         SignInPage,
         SignUpPage, EveryPage, EveryPagePreview,
-        TemplateShop
+        TemplateShop,
+        Theme1Navbar,
+        MyWebsitePage,
+        NewWebsiteModal,
+        NumberDatePip,
+        ViewWebsitePage,
+        EditWebsitePage,
+        BackgroundImageDirective
     ],
     imports: [
         BrowserModule,
         FormsModule,
         HttpModule,
         AngularFireModule.initializeApp(firebaseConfig),
+        DragulaModule,
         IonicModule.forRoot(MyApp)
     ],
     providers: [],
     bootstrap: [IonicApp],
-    entryComponents: [MyApp, HelloIonicPage, ListPage, ItemDetailsPage, SignInPage, SignUpPage, EveryPage, EveryPagePreview, TemplateShop]
+    entryComponents: [MyApp, HelloIonicPage,
+        ListPage, ItemDetailsPage,
+        SignInPage, SignUpPage,
+        EveryPage, EveryPagePreview,
+        NewWebsiteModal,
+        TemplateShop, MyWebsitePage,
+        ViewWebsitePage, EditWebsitePage
+    ]
 })
 export class AppModule { }

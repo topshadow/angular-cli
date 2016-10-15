@@ -1,0 +1,52 @@
+<ion-header>
+	<ion-navbar>
+		<button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+		<ion-title>我的站点</ion-title>
+	</ion-navbar>
+</ion-header>
+<ion-content>
+
+	<ion-list>
+		<ion-list-header>
+			我的站点
+		</ion-list-header>
+
+		<ion-item-sliding *ngFor="let website of websites | async">
+			<ion-item>
+				<ion-avatar item-left>
+					<img src="assets/img/venkman.jpg">
+				</ion-avatar>
+				<h2>{{website.name}}</h2>
+				<p>二级域名:{{website.SLD}}</p>
+				<p>创建于 {{website.createDt | number2Date | date:'yyyy年MM月dd日HH时mm分ss秒' }}</p>
+			</ion-item>
+			<ion-item-options>
+				<button ion-button color="primary" icon-left (click)="viewWebsite(website)">
+          <ion-icon name="eye"></ion-icon>
+          预览
+        </button>
+				<button ion-button color="secondary" icon-left (click)="editWebsite(website)">
+          <ion-icon name="paper-plane"></ion-icon>
+          编辑
+        </button>
+				<button ion-button color="danger" icon-left (click)="removeWebsite(website.$key)">
+          <ion-icon name="close-circle"></ion-icon>
+          删除
+        </button>
+			</ion-item-options>
+		</ion-item-sliding>
+
+
+
+
+
+	</ion-list>
+
+
+
+	<button ion-button icon-only full round (click)="showNewWebsiteModal()">
+        <ion-icon name="add"></ion-icon>
+    </button>
+</ion-content>

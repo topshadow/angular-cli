@@ -1,25 +1,37 @@
 <ion-header>
-  <ion-navbar>
-    <button ion-button menuToggle>
+	<ion-navbar>
+		<button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>旅烨建站系统</ion-title>
-  </ion-navbar>
+		<ion-title>旅烨建站系统</ion-title>
+	</ion-navbar>
 </ion-header>
 
 
 <ion-content padding>
 
-  <h3>Welcome to your first Ionic app!</h3>
 
-  <p>
-    This starter project is our way of helping you get a functional app running in record time.
-  </p>
-  <p>
-    Follow along on the tutorial section of the Ionic docs!
-  </p>
-  <p>
-    <button ion-button color="primary" menuToggle>Toggle Menu</button>
-  </p>
+
+	<h3>Welcome to your first Ionic app!</h3>
+
+
+	<div [dragula]='"first-bag"'>
+		<div>1</div>
+		<div>2</div>
+		<div>3</div>
+	</div>
+	<ion-grid>
+		<ion-row>
+			<div [dragula]='"drag-part"' [dragulaModel]="parts" class="col-xs-6">
+				<img *ngFor="let part of parts" class="img-responsive" [src]="part.picture">
+			</div>
+
+			<div [dragula]='"drag-part"' [dragulaModel]="optionParts" class="col-xs-6">
+				<img *ngFor="let optionPart of optionParts" class="img-responsive" [src]="optionPart.picture">
+
+			</div>
+
+		</ion-row>
+	</ion-grid>
 
 </ion-content>

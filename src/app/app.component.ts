@@ -1,4 +1,4 @@
-import { TemplateShop } from '../pages/template-shop/template-shop';
+
 import { EveryPagePreview } from '../pages/every-page-preview/every-page-preview';
 import { Component, ViewChild, OnInit } from '@angular/core';
 
@@ -7,7 +7,14 @@ import { Platform, MenuController, Nav, Events } from 'ionic-angular';
 
 import { AngularFire, FirebaseListObservable } from 'angularfire2';
 
-import { HelloIonicPage, ListPage, SignInPage, ItemDetailsPage, SignUpPage } from '../pages/index';
+import {
+  HelloIonicPage,
+  ListPage,
+  SignInPage,
+  ItemDetailsPage,
+  SignUpPage,
+  MyWebsitePage, TemplateShop
+} from '../pages/index';
 
 
 
@@ -18,9 +25,15 @@ import { HelloIonicPage, ListPage, SignInPage, ItemDetailsPage, SignUpPage } fro
 export class MyApp implements OnInit {
   @ViewChild(Nav) nav: Nav;
 
+  user: User;
   // make HelloIonicPage the root (or first) page
   rootPage: any = HelloIonicPage;
   pages: Array<{ title: string, component: any }>;
+
+  loginPages: Array<{ title: string, component: any }> = [
+    { title: '模板商城', component: TemplateShop },
+    { title: '我的站点', component: MyWebsitePage }
+  ];
   docs: FirebaseListObservable<any>;
   constructor(
     public platform: Platform,
@@ -49,11 +62,11 @@ export class MyApp implements OnInit {
     ];
 
     // 登录成功的时候,    
-    this.events.subscribe('login:successfully', (userEventData) => {
+    this.events.subscribe('login:successfully', (user) => {
+      this.user = user[0];
       this.menu.enable(true, "login"),
         this.menu.enable(false, "unlogin")
     });
-
   }
 
   toPreveiwPage() {
@@ -66,8 +79,10 @@ export class MyApp implements OnInit {
   }
 
   ngOnInit() {
+    // 用于测试的自动登录
 
   }
+
   initializeApp() {
     this.platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
