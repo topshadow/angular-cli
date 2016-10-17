@@ -5,17 +5,24 @@ import { Component } from '@angular/core';
   templateUrl: 'hello-ionic.html'
 })
 export class HelloIonicPage {
-  parts: Part[] = [{ picture: 'assets/images/1.png' }];
 
-  // 记得切换主题 themes,标签页
-  optionParts: Part[] = [{ picture: 'assets/images/1.png' }, { picture: 'assets/images/2.png' }, { picture: 'assets/images/3.png' }];
+  slides = [
+    {
+      title: "Welcome to the Docs!",
+      description: "The <b>Ionic Component Documentation</b> showcases a number of useful components that are included out of the box with Ionic.",
+      image: "assets/images/ica-slidebox-img-1.png",
+    },
+    {
+      title: "What is Ionic?",
+      description: "<b>Ionic Framework</b> is an open source SDK that enables developers to build high quality mobile apps with web technologies like HTML, CSS, and JavaScript.",
+      image: "assets/images/ica-slidebox-img-2.png",
+    },
+    {
+      title: "What is Ionic Cloud?",
+      description: "The <b>Ionic Cloud</b> is a cloud platform for managing and scaling Ionic apps with integrated services like push notifications, native builds, user auth, and live updating.",
+      image: "assets/images/ica-slidebox-img-3.png",
+    }
+  ];
 
-  constructor() {
-    // debug dragula
-    window['bug'] = () => {
-      console.log(this.parts);
-      console.log(this.optionParts);
-    };
 
-  }
 }

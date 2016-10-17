@@ -1,3 +1,4 @@
+
 import { NumberDatePip, BackgroundImageDirective } from '../tools';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -24,7 +25,8 @@ import {
     MyWebsitePage,
     NewWebsiteModal,
     ViewWebsitePage,
-    EditWebsitePage
+    EditWebsitePage,
+    NewPageModal
 } from '../pages/index';
 
 
@@ -53,7 +55,8 @@ export const firebaseConfig = {
         NumberDatePip,
         ViewWebsitePage,
         EditWebsitePage,
-        BackgroundImageDirective
+        BackgroundImageDirective,
+        NewPageModal
     ],
     imports: [
         BrowserModule,
@@ -71,7 +74,7 @@ export const firebaseConfig = {
         EveryPage, EveryPagePreview,
         NewWebsiteModal,
         TemplateShop, MyWebsitePage,
-        ViewWebsitePage, EditWebsitePage
+        ViewWebsitePage, EditWebsitePage, NewPageModal
     ]
 })
 export class AppModule { }

@@ -30,9 +30,7 @@ export class MyWebsitePage {
     }
 
     showNewWebsiteModal() {
-
         this.modalCtrl.create(NewWebsiteModal).present();
-        console.log('显示创建界面')
     }
 
 }

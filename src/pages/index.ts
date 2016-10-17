@@ -11,3 +11,4 @@ export * from './my-website/my-website';
 export * from './my-website/new-website-modal';
 export * from './my-website/view-website';
 export * from './my-website/edit-website';
+export * from './my-website/new-page.modal';

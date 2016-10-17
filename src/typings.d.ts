@@ -26,17 +26,39 @@ interface User {
 
 }
 
+interface Page {
+    //页面的路径
+    path: string;
+
+    //导航名
+    name: string;
+
+    //也买男路径    
+    parts: Part[];
+}
+
 interface Website {
     name: string;
     description: string;
     // 二级域名
     SLD: string;
-    data: any;
     // 数字,方便比较和上传
     createDt: number;
+
+    pages?: Page[]
+
+    //firebase的$key,$value引用,用于update
+    tags: string[];
+
+    $key?: string;
+    $value?: string;
+    $exists?: any;
+
 }
 
 
 interface Part {
     picture: string;
+    name?: string;
+    content?: any;
 }

@@ -22,7 +22,7 @@
 				<p>二级域名:{{website.SLD}}</p>
 				<p>创建于 {{website.createDt | number2Date | date:'yyyy年MM月dd日HH时mm分ss秒' }}</p>
 			</ion-item>
-			<ion-item-options>
+			<ion-item-options side="right">
 				<button ion-button color="primary" icon-left (click)="viewWebsite(website)">
           <ion-icon name="eye"></ion-icon>
           预览
@@ -37,14 +37,7 @@
         </button>
 			</ion-item-options>
 		</ion-item-sliding>
-
-
-
-
-
 	</ion-list>
-
-
 
 	<button ion-button icon-only full round (click)="showNewWebsiteModal()">
         <ion-icon name="add"></ion-icon>

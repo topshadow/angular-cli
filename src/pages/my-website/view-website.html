@@ -1,12 +1,16 @@
 <ion-header>
-	<ion-navbar>
-
-	</ion-navbar>
+	<ion-toolbar>
+		<ion-buttons start>
+			<button ion-button (click)="dismiss()">
+			<ion-icon name="md-close"></ion-icon>
+			</button>
+		</ion-buttons>
+	</ion-toolbar>
 	<ion-title>
 		二级域名:{{website.SLD}}
 	</ion-title>
 </ion-header>
 
 <ion-content>
-	预览的网站的内容
+	预览的网站的内容 {{website | json}}
 </ion-content>
