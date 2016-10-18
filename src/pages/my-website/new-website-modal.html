@@ -27,6 +27,24 @@
 			<ion-label floating>二级域名:例如:hello</ion-label>
 			<ion-input [(ngModel)]="newWebsite.SLD"></ion-input>
 		</ion-item>
+		<ion-item>
+			<ion-label>标签: {{newWebsite.tag }}</ion-label>
+
+		</ion-item>
+		<ion-item>
+			<ion-label>
+				<ion-select [(ngModel)]="newWebsite.tag" (ionChange)="addTag($event)" cancelText="取消" okText="确定" #selectTag>
+					<ion-option value="商业">商业</ion-option>
+					<ion-option value="企业">企业</ion-option>
+					<ion-option value="政府">政府</ion-option>
+					<ion-option value="淘宝">淘宝</ion-option>
+					<ion-option value="音乐">音乐</ion-option>
+					<ion-option value="电影">电影</ion-option>
+				</ion-select>
+			</ion-label>
+		</ion-item>
 	</ion-list>
+
+
 	<button ion-button full round color="primary" (click)="addNewWebsite();dismiss()">添加</button>
 </ion-content>

@@ -20,9 +20,13 @@
 				</ion-avatar>
 				<h2>{{website.name}}</h2>
 				<p>二级域名:{{website.SLD}}</p>
-				<p>创建于 {{website.createDt | number2Date | date:'yyyy年MM月dd日HH时mm分ss秒' }}</p>
+				<p>创建于 {{website.createDt | number2date | date:'yyyy年MM月dd日HH时mm分ss秒' }}</p>
 			</ion-item>
 			<ion-item-options side="right">
+				<button ion-button color="primary" icon-left (click)="publishWebsite(website)">
+					<ion-icon name="cloud-upload"></ion-icon>
+					发布
+				</button>
 				<button ion-button color="primary" icon-left (click)="viewWebsite(website)">
           <ion-icon name="eye"></ion-icon>
           预览

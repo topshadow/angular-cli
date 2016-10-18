@@ -26,3 +26,27 @@ export class HelloIonicPage {
 
 
 }
+
+/* 	<ion-slides pager>
+		<ion-slide *ngFor="let slide of slides">
+			<ion-toolbar>
+				<ion-buttons end>
+					<button ion-button>下一页</button>
+				</ion-buttons>
+			</ion-toolbar>
+			<img [src]="slide.image" class="slide-image" />
+			<h2 class="slide-title" [innerHTML]="slide.title"></h2>
+			<p [innerHTML]="slide.description"></p>
+		</ion-slide>
+		<ion-slide>
+			<ion-toolbar>
+			</ion-toolbar>
+			<img src="assets/images/ica-slidebox-img-4.png" class="slide-image" />
+			<h2 class="slide-title">Ready to Play?</h2>
+			<button ion-button large clear icon-right>
+        Continue
+        <ion-icon name="arrow-forward"></ion-icon>
+      </button>
+		</ion-slide>
+	</ion-slides>
+  */

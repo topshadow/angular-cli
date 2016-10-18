@@ -8,5 +8,81 @@
 </ion-header>
 
 <ion-content>
-	<theme1-navbar></theme1-navbar>
+	<ion-list>
+		<ion-item>
+			<ion-label>标签过滤:</ion-label>
+			<ion-select okText="确定" cancelText="取消" (ionChange)="filterByTag($event)">
+				<ion-option value="全部" selected="true">全部</ion-option>
+				<ion-option value="商业">商业</ion-option>
+				<ion-option value="企业">企业</ion-option>
+				<ion-option value="政府">政府</ion-option>
+				<ion-option value="音乐">音乐</ion-option>
+				<ion-option value="淘宝">淘宝</ion-option>
+			</ion-select>
+		</ion-item>
+	</ion-list>
+	<ion-slides pager>
+
+		<ion-slide *ngFor="let publishTemplate of publishTemplates | async ">
+
+			<ion-item>
+				<ion-avatar item-left>
+					<img src="http://ionicframework.com/dist/preview-app/www/assets/img/marty-avatar.png">
+				</ion-avatar>
+				<h2>发布者:{{publishTemplate.publisher}}</h2>
+				<p>{{publishTemplate.publishDt | number2date | date:'yyyy年MM月dd日HH时mm分ss秒'}}</p>
+			</ion-item>
+			<ion-card>
+				<img src="assets/images/ica-slidebox-img-4.png" />
+				<ion-card-content>
+
+				</ion-card-content>
+				<ion-row>
+					<ion-col>
+						<button ion-button color="primary" clear small icon-left>
+							<ion-icon name="cloud"></ion-icon>
+							预览
+						</button>
+					</ion-col>
+					<ion-col>
+						<button icon-button color="primary" clear small icon-left>
+							<ion-icon name="add"></ion-icon>
+							添加
+						</button>
+					</ion-col>
+					<ion-col>
+						<button ion-button color="primary" clear small icon-left>
+							<ion-icon name="star"></ion-icon>
+							查看作者
+						</button>
+					</ion-col>
+				</ion-row>
+				<ion-row>
+					<ion-col>
+						<button ion-button color="primary" clear small icon-left>
+        <ion-icon name="heart"></ion-icon>
+        <div>12 喜欢</div>
+      </button>
+					</ion-col>
+					<ion-col>
+						<button ion-button color="primary" clear small icon-left>
+        <ion-icon name="text"></ion-icon>
+        <div>4 留言</div>
+      </button>
+					</ion-col>
+					<ion-col center text-center>
+						<ion-note>
+							11小时 以前
+						</ion-note>
+					</ion-col>
+				</ion-row>
+			</ion-card>
+		</ion-slide>
+	</ion-slides>
+
+	<button (click)="filterByTag()">点击预览全部</button>
+	<button (click)="filterByTag('商业')">商业</button>
+	<button (click)="filterByTag('音乐')">音乐</button>
+	<button (click)="filterByTag('淘宝')">淘宝</button>
+
 </ion-content>

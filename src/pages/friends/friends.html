@@ -1,0 +1,20 @@
+<ion-header>
+	<ion-navbar>
+		<button ion-button menuToggle>
+                <ion-icon name="menu"></ion-icon>
+            </button>
+		<ion-title>我的好友</ion-title>
+
+	</ion-navbar>
+</ion-header>
+<ion-content>
+	<ion-list>
+		<ion-item *ngFor="let user of users " (click)="showActionSheet(user)">
+			<ion-avatar item-left>
+				<img src="http://ionicframework.com/dist/preview-app/www/assets/img/avatar-ts-woody.png">
+			</ion-avatar>
+			<h2>{{user.username}}</h2>
+			<p>{{user | json}}</p>
+		</ion-item>
+	</ion-list>
+</ion-content>

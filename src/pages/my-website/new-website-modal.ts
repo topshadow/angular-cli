@@ -1,20 +1,22 @@
-
 import { Component } from '@angular/core';
 import { ViewController, NavController } from 'ionic-angular';
 import { AngularFire, FirebaseListObservable } from 'angularfire2';
+import { Subject } from 'rxjs/Subject';
+
 import { MyWebsitePage } from '../index';
 
 @Component({
     templateUrl: './new-website-modal.html'
 })
 export class NewWebsiteModal {
+    selectedTag: string;
 
     newWebsite: Website = {
         name: '', description: '',
         pages: [{ name: 'home', path: 'index', parts: [] }],
         SLD: '',
         createDt: new Date().getTime(),
-        tags: []
+        tag: '商业'
     };
     constructor(private viewCtrl: ViewController, private navCtrl: NavController, private af: AngularFire) { }
 
@@ -29,6 +31,13 @@ export class NewWebsiteModal {
     addNewPage() {
 
     }
+
+    addTag(text) {
+        this.newWebsite.tag = text;
+
+    }
+
+
     dismiss() {
         return this.viewCtrl.dismiss();
     }

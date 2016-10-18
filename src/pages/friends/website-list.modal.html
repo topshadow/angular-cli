@@ -1,0 +1,51 @@
+<ion-header>
+	<ion-navbar>
+		<ion-buttons>
+			<button ion-button (click)="dismiss()">返回</button>
+		</ion-buttons>
+		<ion-title>好友:{{user.username}}的信息</ion-title>
+	</ion-navbar>
+</ion-header>
+<ion-content>
+	<ion-card>
+
+		<ion-item>
+			<ion-avatar item-left>
+				<img src="http://ionicframework.com/dist/preview-app/www/assets/img/marty-avatar.png">
+			</ion-avatar>
+			<h2>{{user.username}}</h2>
+			<p>{{user.gender}}</p>
+			<p>{{user.birthday}}</p>
+
+		</ion-item>
+		<ion-card-content>
+			<p>{{user.signature}}</p>
+		</ion-card-content>
+
+
+	</ion-card>
+	<ion-list>
+		<ion-item-sliding *ngFor="let website of websites | async">
+			<ion-item>
+				<ion-avatar item-left>
+					<img src="assets/img/venkman.jpg">
+				</ion-avatar>
+				<h2>{{website.name}}</h2>
+				<p>二级域名:{{website.SLD}}</p>
+				<p>创建于 {{website.createDt | number2date | date:'yyyy年MM月dd日HH时mm分ss秒' }}</p>
+			</ion-item>
+			<ion-item-options side="right">
+
+				<button ion-button color="primary" icon-left (click)="viewWebsite(website)">
+          <ion-icon name="eye"></ion-icon>
+          预览
+        </button>
+				<button ion-button color="secondary" icon-left (click)="addWebsite(website)">
+          <ion-icon name="paper-plane"></ion-icon>
+          添加使用
+        </button>
+
+			</ion-item-options>
+		</ion-item-sliding>
+	</ion-list>
+</ion-content>

@@ -1,5 +1,4 @@
-
-import { NumberDatePip, BackgroundImageDirective } from '../tools';
+import { NumberDatePip, TagPipe, BackgroundImageDirective } from '../tools';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -10,13 +9,11 @@ import { DragulaModule } from 'ng2-dragula/ng2-dragula';
 
 
 import { MyApp } from './app.component';
-import { Theme1Navbar } from '../themes/index';
+import { Theme1Navbar, Theme1Carousel, Theme1Features, Theme1RecentWorks, Theme1Service } from '../themes/index';
 
 
 import {
     SignInPage,
-    ListPage,
-    ItemDetailsPage,
     HelloIonicPage,
     SignUpPage,
     EveryPage,
@@ -26,8 +23,9 @@ import {
     NewWebsiteModal,
     ViewWebsitePage,
     EditWebsitePage,
-    NewPageModal
+    NewPageModal, FriendsPage, WebsiteListModal
 } from '../pages/index';
+
 
 
 
@@ -44,8 +42,7 @@ export const firebaseConfig = {
     declarations: [
         MyApp,
         HelloIonicPage,
-        ListPage,
-        ItemDetailsPage,
+
         SignInPage,
         SignUpPage, EveryPage, EveryPagePreview,
         TemplateShop,
@@ -53,10 +50,16 @@ export const firebaseConfig = {
         MyWebsitePage,
         NewWebsiteModal,
         NumberDatePip,
+        TagPipe,
         ViewWebsitePage,
         EditWebsitePage,
         BackgroundImageDirective,
-        NewPageModal
+        NewPageModal, FriendsPage, WebsiteListModal,
+
+
+
+
+        Theme1Navbar, Theme1Carousel, Theme1Features, Theme1RecentWorks, Theme1Service
     ],
     imports: [
         BrowserModule,
@@ -69,12 +72,12 @@ export const firebaseConfig = {
     providers: [],
     bootstrap: [IonicApp],
     entryComponents: [MyApp, HelloIonicPage,
-        ListPage, ItemDetailsPage,
         SignInPage, SignUpPage,
         EveryPage, EveryPagePreview,
         NewWebsiteModal,
         TemplateShop, MyWebsitePage,
-        ViewWebsitePage, EditWebsitePage, NewPageModal
+        ViewWebsitePage, EditWebsitePage, NewPageModal, FriendsPage
+        , WebsiteListModal
     ]
 })
 export class AppModule { }

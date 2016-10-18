@@ -1,1 +1,2 @@
-export * from './number-date-pipe';
+export * from './number2date-pipe';
+export * from './tag-pipe';

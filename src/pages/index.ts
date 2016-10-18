@@ -1,6 +1,4 @@
 export * from './hello-ionic/hello-ionic';
-export * from './item-details/item-details';
-export * from './list/list';
 export * from './sign-in/sign-in';
 export * from './sign-up/sign-up';
 export * from './every-page/every-page';
@@ -12,3 +10,5 @@ export * from './my-website/new-website-modal';
 export * from './my-website/view-website';
 export * from './my-website/edit-website';
 export * from './my-website/new-page.modal';
+export * from './friends/friends';
+export * from './friends/website-list.modal';

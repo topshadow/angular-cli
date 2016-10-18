@@ -48,7 +48,10 @@ interface Website {
     pages?: Page[]
 
     //firebase的$key,$value引用,用于update
-    tags: string[];
+    tag: string;
+    publisher?: string;
+
+    publishDt?: number;
 
     $key?: string;
     $value?: string;

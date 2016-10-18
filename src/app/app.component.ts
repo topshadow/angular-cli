@@ -9,11 +9,10 @@ import { AngularFire, FirebaseListObservable } from 'angularfire2';
 
 import {
   HelloIonicPage,
-  ListPage,
+
   SignInPage,
-  ItemDetailsPage,
   SignUpPage,
-  MyWebsitePage, TemplateShop
+  MyWebsitePage, TemplateShop, FriendsPage
 } from '../pages/index';
 
 
@@ -32,7 +31,8 @@ export class MyApp implements OnInit {
 
   loginPages: Array<{ title: string, component: any }> = [
     { title: '模板商城', component: TemplateShop },
-    { title: '我的站点', component: MyWebsitePage }
+    { title: '我的站点', component: MyWebsitePage },
+    { title: '友站', component: FriendsPage }
   ];
   docs: FirebaseListObservable<any>;
   constructor(
@@ -49,7 +49,6 @@ export class MyApp implements OnInit {
     if (window.location.pathname.replace('/', '')) {
       this.menu.close()
       this.rootPage = EveryPagePreview;
-
     };
 
 
@@ -57,7 +56,6 @@ export class MyApp implements OnInit {
     this.pages = [
       { title: '登录界面', component: SignInPage },
       { title: '旅烨建站系统', component: HelloIonicPage },
-      { title: "list", component: ListPage },
       { title: "注册页面", component: SignUpPage }
     ];
 

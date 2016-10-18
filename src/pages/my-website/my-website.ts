@@ -33,6 +33,21 @@ export class MyWebsitePage {
         this.modalCtrl.create(NewWebsiteModal).present();
     }
 
+    publishWebsite(website: Website) {
+        var username = localStorage.getItem('username')
+        website.publisher = username;
+        website.publishDt = new Date().getTime();
+        var copyWebsite: Website = JSON.parse(JSON.stringify(website));
+
+        //删除副本的不必要属性
+        delete copyWebsite.$key;
+        delete copyWebsite.$exists;
+        delete copyWebsite.$value;
+        this.af.database.list(`publish`).push(copyWebsite);
+
+        // debugger;
+    }
+
 }
 
 

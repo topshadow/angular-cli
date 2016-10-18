@@ -1,3 +1,5 @@
+// 主题标签页
+
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { AngularFire, FirebaseObjectObservable } from 'angularfire2';
 import { NavParams, ModalController } from 'ionic-angular';
@@ -46,24 +48,17 @@ export class EditWebsitePage {
     }
 
     viewWebsite() {
+        this.savePage()
         this.modalCtrl.create(ViewWebsitePage, this.website).present();
     }
 
-    // 保存在历史版本,并记录操作日期
+    /**
+     * 保存在历史版本,并记录操作日期
+     * @memberOf EditWebsitePage
+     */
     savePage() {
         var username = localStorage.getItem('username');
-        /** 因为通过 async 添加了一些 例如 val(),
-         * 等函数,不方便上传,但是使用 {name:this.website.name}依次填写属性值,
-         * 不方便后期扩展website的值,所以遍历对像的值属性,并上传
-         *delete 和 undefined 的区别
-         */
-
         this.af.database.object(`users/${username}/websites/${this.website.$key}`).update({ pages: this.website.pages });
-        // .subscribe(website => {
-        // console.log(website);
-        // })
-        // .set(this.website)
-        // .then(s => { console.log(s) });
     }
 }
 
