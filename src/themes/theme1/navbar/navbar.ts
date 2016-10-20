@@ -1,4 +1,6 @@
-import { Component, Input,ElementRef } from '@angular/core';
+import { Component, Input, ElementRef } from '@angular/core';
+import { ModalController } from 'ionic-angular';
+import { EditNavbarModal } from './edit-navbar.modal';
 
 @Component({
     selector: 'theme1-navbar',
@@ -11,9 +13,9 @@ export class Theme1Navbar {
         }
     };
 
-    constructor() { }
+    constructor(private modalCtrl: ModalController) { }
 
-
-
-
+    showEditModal(event) {
+        this.modalCtrl.create(EditNavbarModal, this.data).present();
+    }
 }

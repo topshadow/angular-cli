@@ -2,8 +2,8 @@
 export class TestGroup {
     results: HTMLElement;
     description: string;
-    constructor(descrition: string, testGroup: (testGroup: TestGroup) => void) {
-        this.results = document.getElementById("results");
+    constructor(el: HTMLElement, descrition: string, testGroup: (testGroup: TestGroup) => void) {
+        this.results = el;
         this.results = <HTMLElement>this.assert(true, descrition).appendChild(document.createElement("ul"));
         // 执行回调函数
         testGroup(this);
@@ -30,13 +30,5 @@ export class TestGroup {
         }
         return li;
     }
-}
-
-window.onload = function () {
-
-    new TestGroup("测试结果", (testGroup: TestGroup) => {
-        testGroup.assert(true, "第一组第一个测试,会通过");
-        testGroup.assert(false, "第一组第二个测试,不会通过")
-    });
 }
 

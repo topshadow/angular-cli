@@ -19,8 +19,8 @@ export class SignInPage implements OnInit {
         private navController: NavController) { }
 
     ngOnInit() {
-        this.user.username = "123";
-        this.user.password = "123";
+        this.user.username = "2345";
+        this.user.password = "234";
         this.signIn();
     }
     signIn() {

@@ -10,5 +10,8 @@ export * from './my-website/new-website-modal';
 export * from './my-website/view-website';
 export * from './my-website/edit-website';
 export * from './my-website/new-page.modal';
+export * from './my-website/publish-website.modal';
+
+
 export * from './friends/friends';
 export * from './friends/website-list.modal';

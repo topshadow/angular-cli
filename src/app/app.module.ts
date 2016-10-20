@@ -1,4 +1,6 @@
-import { NumberDatePip, TagPipe, BackgroundImageDirective } from '../tools';
+import { Page404 } from './404.page';
+
+import { NumberDatePip, TagPipe, BackgroundImageDirective, PassTimePipe } from '../tools';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -9,7 +11,12 @@ import { DragulaModule } from 'ng2-dragula/ng2-dragula';
 
 
 import { MyApp } from './app.component';
-import { Theme1Navbar, Theme1Carousel, Theme1Features, Theme1RecentWorks, Theme1Service } from '../themes/index';
+import {
+    Theme1Navbar, EditNavbarModal,
+    Theme1Carousel, Theme1Features,
+    Theme1RecentWorks, Theme1Service,
+    Theme1Footer
+} from '../themes/index';
 
 
 import {
@@ -23,7 +30,8 @@ import {
     NewWebsiteModal,
     ViewWebsitePage,
     EditWebsitePage,
-    NewPageModal, FriendsPage, WebsiteListModal
+    NewPageModal, FriendsPage,
+    WebsiteListModal, PublishWebsiteModal,
 } from '../pages/index';
 
 
@@ -42,7 +50,6 @@ export const firebaseConfig = {
     declarations: [
         MyApp,
         HelloIonicPage,
-
         SignInPage,
         SignUpPage, EveryPage, EveryPagePreview,
         TemplateShop,
@@ -55,11 +62,9 @@ export const firebaseConfig = {
         EditWebsitePage,
         BackgroundImageDirective,
         NewPageModal, FriendsPage, WebsiteListModal,
-
-
-
-
-        Theme1Navbar, Theme1Carousel, Theme1Features, Theme1RecentWorks, Theme1Service
+        Theme1Carousel, Theme1Features, Theme1RecentWorks, Theme1Service,
+        Theme1Footer, PublishWebsiteModal, PassTimePipe, Page404,
+        EditNavbarModal
     ],
     imports: [
         BrowserModule,
@@ -76,8 +81,9 @@ export const firebaseConfig = {
         EveryPage, EveryPagePreview,
         NewWebsiteModal,
         TemplateShop, MyWebsitePage,
-        ViewWebsitePage, EditWebsitePage, NewPageModal, FriendsPage
-        , WebsiteListModal
+        ViewWebsitePage, EditWebsitePage, NewPageModal, FriendsPage,
+        WebsiteListModal, Theme1Footer, PublishWebsiteModal, Page404,
+        EditNavbarModal
     ]
 })
 export class AppModule { }

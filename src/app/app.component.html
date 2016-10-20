@@ -1,23 +1,8 @@
 <!--未登录界面-->
-<ion-menu [content]="content" id="unlogin">
-	<ion-header>
-		<ion-toolbar>
-			<ion-title>菜单</ion-title>
-		</ion-toolbar>
-	</ion-header>
 
-	<ion-content>
-		<ion-list>
-			<button ion-item *ngFor="let p of pages" (click)="openPage(p)">
-        {{p.title}}
-      </button>
-		</ion-list>
-
-	</ion-content>
-</ion-menu>
 
 <!--登录后的界面-->
-<ion-menu [content]="content" id="login">
+<ion-menu side="left" id="menu" [content]="content">
 	<ion-content>
 		<ion-list no-border>
 			<ion-item *ngIf="user">
@@ -42,13 +27,12 @@
 				</ion-note>
 			</button>
 
-			<ion-item (click)="openPage(loginPages[2])">
-				<ion-toggle checked="false"></ion-toggle>
+			<button ion-item (click)="openPage(loginPages[2])">
 				<ion-label>
 					友站
 				</ion-label>
 				<ion-icon name='body' item-left></ion-icon>
-			</ion-item>
+			</button>
 
 			<ion-item>
 				<ion-icon name='leaf' item-left></ion-icon>
@@ -118,7 +102,12 @@
 				帮助
 				<ion-note item-right>Muggle-born</ion-note>
 			</ion-item>
+			<ion-item (click)="exit()">
+				<ion-icon name="power" color="danger" item-left></ion-icon>
+				退出
+				<ion-note item-right></ion-note>
 
+			</ion-item>
 		</ion-list>
 
 	</ion-content>

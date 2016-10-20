@@ -12,5 +12,17 @@
 </ion-header>
 
 <ion-content>
-	预览的网站的内容 {{website | json}}
+	<div *ngFor="let part of currentPage.parts">
+		<div [ngSwitch]="part.selector">
+			<theme1-navbar *ngSwitchCase="'theme1-navbar'" (press)="navbar.showEditModal($event)" #navbar>
+			</theme1-navbar>
+			<theme1-carousel *ngSwitchCase="'theme1-carousel'">
+			</theme1-carousel>
+			<theme1-recent-works *ngSwitchCase="'theme1-recent-works'"></theme1-recent-works>
+			<theme1-service *ngSwitchCase="'theme1-service'"></theme1-service>
+			<theme1-footer *ngSwitchCase="'theme1-footer'"></theme1-footer>
+		</div>
+
+	</div>
+
 </ion-content>

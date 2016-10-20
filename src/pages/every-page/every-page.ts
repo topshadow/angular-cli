@@ -9,8 +9,8 @@ import { AngularFire } from 'angularfire2';
 export class EveryPage {
     user: User;
     constructor(navParams: NavParams, af: AngularFire) {
-        var username = navParams.get('username');
-        var password = navParams.get('password');
+        var username = navParams.get('SLD');
+        var password = navParams.get('username');
         af.database.object(`users/${username}`).subscribe(user => {
             if (user.password == password) {
                 this.user = this.user

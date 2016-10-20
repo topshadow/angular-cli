@@ -1,1 +1,23 @@
-every page previuew
+<ion-header>
+	<ion-navbar>
+		<ion-buttons start>
+			<button ion-button menuToggle>
+                <ion-icon name="menu"></ion-icon>
+            </button>
+		</ion-buttons>
+		<ion-title>浏览模式</ion-title>
+	</ion-navbar>
+</ion-header>
+<ion-content>
+	<div *ngFor="let part of currentPage?.parts" (tap)="tap($event)">
+		<div [ngSwitch]="part.selector">
+			<theme1-navbar *ngSwitchCase="'theme1-navbar'">
+			</theme1-navbar>
+			<theme1-carousel *ngSwitchCase="'theme1-carousel'">
+			</theme1-carousel>
+			<theme1-recent-works *ngSwitchCase="'theme1-recent-works'"></theme1-recent-works>
+			<theme1-service *ngSwitchCase="'theme1-service'"></theme1-service>
+			<theme1-footer *ngSwitchCase="'theme1-footer'"></theme1-footer>
+		</div>
+	</div>
+</ion-content>

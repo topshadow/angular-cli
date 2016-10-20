@@ -1,11 +1,12 @@
-
 import { EveryPagePreview } from '../pages/every-page-preview/every-page-preview';
-import { Component, ViewChild, OnInit } from '@angular/core';
 
-import { Platform, MenuController, Nav, Events } from 'ionic-angular';
-// import {Statub} from 'ionic-native';
+import { Component, ViewChild, OnInit, AfterViewInit } from '@angular/core';
+
+import { Platform, MenuController, Nav, Events, NavController } from 'ionic-angular';
 
 import { AngularFire, FirebaseListObservable } from 'angularfire2';
+
+import { ViewWebsitePage } from '../pages/index';
 
 import {
   HelloIonicPage,
@@ -19,9 +20,10 @@ import {
 
 @Component({
   templateUrl: 'app.component.html',
-  providers: []
+  providers: [],
+  styles: ['src/styles.scss']
 })
-export class MyApp implements OnInit {
+export class MyApp implements OnInit, AfterViewInit {
   @ViewChild(Nav) nav: Nav;
 
   user: User;
@@ -37,20 +39,13 @@ export class MyApp implements OnInit {
   docs: FirebaseListObservable<any>;
   constructor(
     public platform: Platform,
-    public menu: MenuController,
+    public menuCtrl: MenuController,
     public af: AngularFire,
-    public events: Events
+    public events: Events,
+
 
   ) {
     this.initializeApp();
-    this.menu.enable(true, "unlogin");
-    this.menu.enable(false, "login");
-
-    if (window.location.pathname.replace('/', '')) {
-      this.menu.close()
-      this.rootPage = EveryPagePreview;
-    };
-
 
     // set our app's pages
     this.pages = [
@@ -62,8 +57,8 @@ export class MyApp implements OnInit {
     // 登录成功的时候,    
     this.events.subscribe('login:successfully', (user) => {
       this.user = user[0];
-      this.menu.enable(true, "login"),
-        this.menu.enable(false, "unlogin")
+      this.menuCtrl.enable(true);
+      this.menuCtrl.swipeEnable(true);
     });
   }
 
@@ -71,8 +66,25 @@ export class MyApp implements OnInit {
 
   }
 
+  ngAfterViewInit() {
+    this.menuCtrl.enable(false, 'menu');
+    this.menuCtrl.swipeEnable(false, 'menu');
+
+    //如果path 符合  /用户名/网站二级域名,则渲染该网站
+    if (/^\/\w+\/\w+/.test(location.pathname)) {
+      this.menuCtrl.close();
+      var parseUserRegExp = /\w+/g;
+      let [username] = parseUserRegExp.exec(location.pathname);
+      let [SLD] = parseUserRegExp.exec(location.pathname);
+
+      this.nav.setRoot(EveryPagePreview, { username, SLD });
+
+      return;
+    };
+  }
+
   openTemplateShop() {
-    this.menu.close();
+    this.menuCtrl.close();
     this.nav.setRoot(TemplateShop);
   }
 
@@ -91,8 +103,12 @@ export class MyApp implements OnInit {
 
   openPage(page) {
     // close the menu when clicking a link from the menu
-    this.menu.close();
+    this.menuCtrl.close();
     // navigate to the new page if it is not the current page
     this.nav.setRoot(page.component);
+  }
+
+  exit() {
+    location.href = location.host;
   }
 }

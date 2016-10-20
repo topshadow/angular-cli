@@ -13,10 +13,12 @@ export class EditWebsitePage {
     website: Website;
     selectedPage: Page;
     currentPage: Page;
-    optionParts: Part[] = [{ name: 'theme1-navbar', picture: 'assets/images/1.png' },
-    { name: 'theme1-navbar', picture: 'assets/images/1.png' },
-    { name: 'theme1-carousel', picture: 'assets/images/2.png' },
-    { name: 'theme1-skill', picture: 'assets/images/3.png' }
+    optionParts: Part[] = [
+        { selector: 'theme1-navbar', picture: 'assets/images/theme1-navbar.png' },
+        { selector: 'theme1-carousel', picture: 'assets/images/theme1-carousel.png' },
+        { selector: 'theme1-service', picture: 'assets/images/theme1-service.png' },
+        { selector: 'theme1-recent-works', picture: 'assets/images/theme1-recent-works.png' },
+        { selector: 'theme1-footer', picture: 'assets/images/theme1-footer.png' }
     ];
 
     constructor(private navParams: NavParams, private modalCtrl: ModalController, private af: AngularFire) {

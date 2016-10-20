@@ -1,0 +1,17 @@
+#results  {
+    li{
+        list-style:decimal;
+    }
+    li.pass{
+        &::before{
+            content:'success';
+            background-color:green;
+        }
+    }
+    li.fail{
+        &::before{
+            content:"fail";
+            background-color:red;
+        }
+    }
+}

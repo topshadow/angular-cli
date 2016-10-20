@@ -37,7 +37,6 @@ export class NewWebsiteModal {
 
     }
 
-
     dismiss() {
         return this.viewCtrl.dismiss();
     }

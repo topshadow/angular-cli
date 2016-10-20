@@ -20,6 +20,10 @@
 				</ion-avatar>
 				<h2>{{website.name}}</h2>
 				<p>二级域名:{{website.SLD}}</p>
+				<p (click)="copyAddress({username:username,SLD:website.SLD})">
+					地址:localhost:4200/ {{username}} / {{website.SLD}}
+				</p>
+
 				<p>创建于 {{website.createDt | number2date | date:'yyyy年MM月dd日HH时mm分ss秒' }}</p>
 			</ion-item>
 			<ion-item-options side="right">
@@ -33,7 +37,7 @@
         </button>
 				<button ion-button color="secondary" icon-left (click)="editWebsite(website)">
           <ion-icon name="paper-plane"></ion-icon>
-          编辑
+          编辑模块
         </button>
 				<button ion-button color="danger" icon-left (click)="removeWebsite(website.$key)">
           <ion-icon name="close-circle"></ion-icon>

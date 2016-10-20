@@ -39,19 +39,19 @@
 				</ion-card-content>
 				<ion-row>
 					<ion-col>
-						<button ion-button color="primary" clear small icon-left>
-							<ion-icon name="cloud"></ion-icon>
+						<button ion-button color="primary" clear small icon-left (click)="viewWebsite(publishTemplate)">
+							<ion-icon name="eye"></ion-icon>
 							预览
 						</button>
 					</ion-col>
 					<ion-col>
-						<button icon-button color="primary" clear small icon-left>
+						<button ion-button color="primary" clear small icon-left (click)="addWebsite(publishTemplate)">
 							<ion-icon name="add"></ion-icon>
 							添加
 						</button>
 					</ion-col>
 					<ion-col>
-						<button ion-button color="primary" clear small icon-left>
+						<button ion-button color="primary" clear small icon-left (click)="viewPublisher(publishTemplate.publisher)">
 							<ion-icon name="star"></ion-icon>
 							查看作者
 						</button>
@@ -59,20 +59,20 @@
 				</ion-row>
 				<ion-row>
 					<ion-col>
-						<button ion-button color="primary" clear small icon-left>
+						<button ion-button color="primary" clear small icon-left (click)="like()">
         <ion-icon name="heart"></ion-icon>
         <div>12 喜欢</div>
       </button>
 					</ion-col>
 					<ion-col>
-						<button ion-button color="primary" clear small icon-left>
+						<button ion-button color="primary" clear small icon-left (click)="leaveMessage()">
         <ion-icon name="text"></ion-icon>
-        <div>4 留言</div>
+        <div>留言</div>
       </button>
 					</ion-col>
 					<ion-col center text-center>
 						<ion-note>
-							11小时 以前
+							过去了 {{publishTemplate.publishDt | passTime | date:'MM月dd天HH时'}}
 						</ion-note>
 					</ion-col>
 				</ion-row>
@@ -80,9 +80,5 @@
 		</ion-slide>
 	</ion-slides>
 
-	<button (click)="filterByTag()">点击预览全部</button>
-	<button (click)="filterByTag('商业')">商业</button>
-	<button (click)="filterByTag('音乐')">音乐</button>
-	<button (click)="filterByTag('淘宝')">淘宝</button>
 
 </ion-content>

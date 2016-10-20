@@ -1,0 +1,32 @@
+<ion-header>
+	<ion-navbar>
+		<ion-buttons start>
+			<button ion-button (click)="dismiss()">
+                <ion-icon name="md-close"></ion-icon>
+            </button>
+		</ion-buttons>
+		<ion-title>发布网站</ion-title>
+	</ion-navbar>
+</ion-header>
+<ion-content>
+	<ion-list>
+		<ion-item>
+			<ion-label floating>描述一下你的网站</ion-label>
+			<ion-textarea rows="6" [(ngModel)]="description"></ion-textarea>
+		</ion-item>
+
+		<ion-item>
+			<ion-label>网站类型:</ion-label>
+			<ion-select [(ngModel)]="tag">
+				<ion-option value="商业" selected="true">商业</ion-option>
+				<ion-option value="淘宝">淘宝</ion-option>
+				<ion-option value="政府">政府</ion-option>
+				<ion-option value="音乐">音乐</ion-option>
+				<ion-option value="电影">电影</ion-option>
+			</ion-select>
+		</ion-item>
+	</ion-list>
+
+	<button ion-button full round (click)="publish()">发布</button>
+
+</ion-content>

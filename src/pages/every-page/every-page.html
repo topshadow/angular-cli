@@ -1,12 +1,24 @@
 <ion-header>
 	<ion-navbar>
-		<button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
-    </button>
-		<ion-title>渲染页面</ion-title>
+		<ion-buttons start>
+			<button ion-button menuToggle>
+                <ion-icon name="menu"></ion-icon>
+            </button>
+		</ion-buttons>
+		<ion-title>编辑模式</ion-title>
 	</ion-navbar>
 </ion-header>
 <ion-content>
-	this is every page
+	<div *ngFor="let part of currentPage?.parts">
+		<div [ngSwitch]="part.selector">
+			<theme1-navbar *ngSwitchCase="'theme1-navbar'">
+			</theme1-navbar>
+			<theme1-carousel *ngSwitchCase="'theme1-carousel'">
+			</theme1-carousel>
+			<theme1-recent-works *ngSwitchCase="'theme1-recent-works'"></theme1-recent-works>
+			<theme1-service *ngSwitchCase="'theme1-service'"></theme1-service>
+			<theme1-footer *ngSwitchCase="'theme1-footer'"></theme1-footer>
+		</div>
 
+	</div>
 </ion-content>

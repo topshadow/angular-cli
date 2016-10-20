@@ -12,7 +12,10 @@ import { AngularFire } from 'angularfire2';
 })
 export class NewPageModal {
     website: Website;
-    newPage: Page = { name: '', path: '', parts: [{ name: 'theme1-navbar', picture: 'assets/images/1.png' }] };
+    newPage: Page = {
+        name: '', path: '',
+        parts: [{ selector: 'theme1-navbar', picture: 'assets/images/1.png' }]
+    };
     selectedTag: string;
     constructor(private viewCtrl: ViewController,
         private navParams: NavParams,

@@ -62,6 +62,7 @@ interface Website {
 
 interface Part {
     picture: string;
-    name?: string;
+    selector: string;
     content?: any;
+    styles?: any;
 }
