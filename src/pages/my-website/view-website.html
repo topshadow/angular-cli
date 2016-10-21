@@ -14,7 +14,7 @@
 <ion-content>
 	<div *ngFor="let part of currentPage.parts">
 		<div [ngSwitch]="part.selector">
-			<theme1-navbar *ngSwitchCase="'theme1-navbar'" (press)="navbar.showEditModal($event)" #navbar>
+			<theme1-navbar *ngSwitchCase="'theme1-navbar'" (press)="openEditPartModal(part)" #navbar>
 			</theme1-navbar>
 			<theme1-carousel *ngSwitchCase="'theme1-carousel'">
 			</theme1-carousel>

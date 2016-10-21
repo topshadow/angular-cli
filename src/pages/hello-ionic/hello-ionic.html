@@ -13,15 +13,15 @@
 
 	<ion-slides pager (ionDidChange)="isSlidesStop(slidesEl)" [options]="slidesOptions" #slidesEl>
 		<ion-slide *ngFor="let slide of slides">
+			<img [src]="slide.image" class="slide-image" />
+			<h2 class="slide-title" [innerHTML]="slide.title"></h2>
+			<p [innerHTML]="slide.description"></p>
 			<ion-toolbar>
 				<ion-buttons>
 					<button ion-button color="primary" (click)="slidesEl.slidePrev()">上一页</button>
 					<button ion-button color="primary" (click)="slidesEl.slideNext()">下一页</button>
 				</ion-buttons>
 			</ion-toolbar>
-			<img [src]="slide.image" class="slide-image" />
-			<h2 class="slide-title" [innerHTML]="slide.title"></h2>
-			<p [innerHTML]="slide.description"></p>
 		</ion-slide>
 		<ion-slide>
 			<ion-toolbar>

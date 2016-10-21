@@ -14,8 +14,20 @@ export class NewPageModal {
     website: Website;
     newPage: Page = {
         name: '', path: '',
-        parts: [{ selector: 'theme1-navbar', picture: 'assets/images/1.png' }]
+        parts: [
+            {
+                selector: 'theme1-navbar', picture: 'assets/images/1.png',
+                content: {
+                    data: [
+                        { type: 'number', description: '联系号码', phone: '+0123 456 70 90' },
+                        { type: 'image', description: '网站logo', logo: 'http://shapebootstrap.net/demo/html/corlate/images/logo.png' }
+                    ]
+                }
+            }
+        ]
     };
+
+
     selectedTag: string;
     constructor(private viewCtrl: ViewController,
         private navParams: NavParams,

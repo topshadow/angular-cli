@@ -31,7 +31,7 @@ import {
     ViewWebsitePage,
     EditWebsitePage,
     NewPageModal, FriendsPage,
-    WebsiteListModal, PublishWebsiteModal,
+    WebsiteListModal, PublishWebsiteModal, EditPartModal
 } from '../pages/index';
 
 
@@ -64,7 +64,7 @@ export const firebaseConfig = {
         NewPageModal, FriendsPage, WebsiteListModal,
         Theme1Carousel, Theme1Features, Theme1RecentWorks, Theme1Service,
         Theme1Footer, PublishWebsiteModal, PassTimePipe, Page404,
-        EditNavbarModal
+        EditNavbarModal, EditPartModal
     ],
     imports: [
         BrowserModule,
@@ -83,7 +83,7 @@ export const firebaseConfig = {
         TemplateShop, MyWebsitePage,
         ViewWebsitePage, EditWebsitePage, NewPageModal, FriendsPage,
         WebsiteListModal, Theme1Footer, PublishWebsiteModal, Page404,
-        EditNavbarModal
+        EditNavbarModal, EditPartModal
     ]
 })
 export class AppModule { }

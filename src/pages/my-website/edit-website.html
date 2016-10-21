@@ -1,6 +1,11 @@
 <ion-header>
 	<ion-navbar>
-
+		<ion-buttons start>
+			<button ion-button (click)="dismiss()">
+				<ion-icon name="md-close"></ion-icon>
+			</button>
+		</ion-buttons>
+		<ion-title>编辑网站</ion-title>
 	</ion-navbar>
 </ion-header>
 
@@ -42,7 +47,14 @@
 		</div>
 
 	</div>
-	<button ion-button full round (click)="viewWebsite()">预览</button>
-	<button ion-button full round (click)="consoleWebsite()">cosnole 网站的数据</button>
-	<button ion-button full round (click)="savePage()">保存</button>
+
+	<ion-grid>
+		<ion-row>
+			<ion-col width-50>
+				<button ion-button color="primary" full round (click)="viewWebsite()">预览</button></ion-col>
+			<ion-col width-50>
+				<button ion-button color="primary" full round (click)="savePage()">保存</button>
+			</ion-col>
+		</ion-row>
+	</ion-grid>
 </ion-content>

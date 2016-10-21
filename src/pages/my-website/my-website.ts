@@ -26,11 +26,11 @@ export class MyWebsitePage {
     }
 
     viewWebsite(website: Website) {
-        this.navCtrl.push(ViewWebsitePage, website);
+        this.modalCtrl.create(ViewWebsitePage, website).present();
     }
 
     editWebsite(website: Website) {
-        this.navCtrl.push(EditWebsitePage, website);
+        this.modalCtrl.create(EditWebsitePage, website).present();
     }
 
     showNewWebsiteModal() {

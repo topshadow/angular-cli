@@ -59,6 +59,7 @@ export class MyApp implements OnInit, AfterViewInit {
       this.user = user[0];
       this.menuCtrl.enable(true);
       this.menuCtrl.swipeEnable(true);
+      this.menuCtrl.open();
     });
   }
 

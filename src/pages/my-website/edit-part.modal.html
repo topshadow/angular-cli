@@ -1,0 +1,42 @@
+<ion-header>
+	<ion-navbar>
+		<ion-buttons start>
+			<button ion-button (click)="dismiss()">
+                <ion-icon name="md-close"></ion-icon>
+            </button>
+		</ion-buttons>
+		<ion-title>编辑模块</ion-title>
+	</ion-navbar>
+</ion-header>
+<ion-content>
+	{{data | json}}
+
+	<ion-list *ngFor="let item of data.content.items">
+		<div [ngSwitch]="item.type">
+			<ion-item *ngSwitchCase="'number'">
+				<ion-label color="primary" floating>{{item.description}}</ion-label>
+				<ion-input [(ngModel)]="item.data">
+				</ion-input>
+			</ion-item>
+			<ion-item *ngSwitchCase="'image'">
+				<ion-thumbnail item-left>
+					<img [src]="item.data">
+				</ion-thumbnail>
+				<ion-label floating>图片地址</ion-label>
+
+				<ion-textarea rows="4" [(ngModel)]="item.data" placeholder="图片"> </ion-textarea>
+
+				<button ion-button item-right color="primary" style="height:100%">选择图片</button>
+
+			</ion-item>
+			<!--数组的情况下-->
+			<div *ngSwitchDefalut>
+				未知的类型{{ item | json}}
+			</div>
+		</div>
+	</ion-list>
+
+	<button ion-button color="primary" full round (click)="consoleData()">
+		consoleDATA
+	</button>
+</ion-content>

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { NavParams, ViewController } from 'ionic-angular';
-
+import { NavParams, ViewController, ModalController } from 'ionic-angular';
+import { EditPartModal } from './edit-part.modal';
 
 @Component({
     templateUrl: './view-website.html'
@@ -8,7 +8,10 @@ import { NavParams, ViewController } from 'ionic-angular';
 export class ViewWebsitePage {
     website: Website;
     currentPage: Page;
-    constructor(private navParams: NavParams, private viewCtrl: ViewController) {
+    constructor(private navParams: NavParams,
+        private viewCtrl: ViewController,
+        private modalCtrl: ModalController
+    ) {
         this.website = this.navParams.data;
         this.currentPage = this.website.pages[0];
         debugger;
@@ -18,6 +21,9 @@ export class ViewWebsitePage {
     }
     tap(event) {
         console.log(event);
+    }
+    openEditPartModal(part: Part) {
+        this.modalCtrl.create(EditPartModal, part).present();
     }
 
     dismiss() {

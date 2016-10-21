@@ -8,8 +8,12 @@ import { EditNavbarModal } from './edit-navbar.modal';
 })
 export class Theme1Navbar {
     @Input() data = {
+        selector: '', picture: '',
         content: {
-            phone: '+0123 456 70 90'
+            items: [
+                { type: 'number', data: '+0123 456 70 90' },
+                { type: 'image', data: 'http://shapebootstrap.net/demo/html/corlate/images/logo.png' }
+            ]
         }
     };
 

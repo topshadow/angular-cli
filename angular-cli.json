@@ -15,8 +15,8 @@
       "prefix": "app",
       "mobile": false,
       "styles": [
+        "assets/main.css",
         "styles.scss",
-        "../node_modules/ionic-angular/css/ionic.min.css"
       ],
       "scripts": [],
       "environments": {
