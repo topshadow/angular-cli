@@ -1,3 +1,4 @@
+import { MainPage } from '../PC/main-page/main-page';
 import { EveryPagePreview } from '../pages/every-page-preview/every-page-preview';
 
 import { Component, ViewChild, OnInit, AfterViewInit } from '@angular/core';
@@ -41,26 +42,33 @@ export class MyApp implements OnInit, AfterViewInit {
     public platform: Platform,
     public menuCtrl: MenuController,
     public af: AngularFire,
-    public events: Events,
-
-
+    public events: Events
   ) {
-    this.initializeApp();
+    //  桌面方式登录则进入桌面的应用版本
+    if (this.platform.is('core')) {
+      this.rootPage = MainPage;
 
-    // set our app's pages
-    this.pages = [
-      { title: '登录界面', component: SignInPage },
-      { title: '旅烨建站系统', component: HelloIonicPage },
-      { title: "注册页面", component: SignUpPage }
-    ];
+    } else {
 
-    // 登录成功的时候,    
-    this.events.subscribe('login:successfully', (user) => {
-      this.user = user[0];
-      this.menuCtrl.enable(true);
-      this.menuCtrl.swipeEnable(true);
-      this.menuCtrl.open();
-    });
+      debugger;
+      this.initializeApp();
+
+      // set our app's pages
+      this.pages = [
+        { title: '登录界面', component: SignInPage },
+        { title: '旅烨建站系统', component: HelloIonicPage },
+        { title: "注册页面", component: SignUpPage }
+      ];
+
+      // 登录成功的时候,    
+      this.events.subscribe('login:successfully', (user) => {
+        this.user = user[0];
+        this.menuCtrl.enable(true);
+        this.menuCtrl.swipeEnable(true);
+        this.menuCtrl.open();
+      });
+    }
+
   }
 
   toPreveiwPage() {

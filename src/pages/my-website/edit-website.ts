@@ -8,7 +8,7 @@ import { NewPageModal } from './new-page.modal';
 import { ViewWebsitePage } from './view-website';
 
 
-var getOptionPartgs = (): Part[] => {
+export var getOptionParts = (): Part[] => {
     return [
         {
             selector: 'theme1-navbar', picture: 'assets/images/1.png',
@@ -34,7 +34,7 @@ export class EditWebsitePage implements OnDestroy {
     website: Website;
     selectedPage: Page;
     currentPage: Page;
-    optionParts: Part[] = getOptionPartgs();
+    optionParts: Part[] = getOptionParts();
 
     constructor(private navParams: NavParams,
         private modalCtrl: ModalController,
@@ -79,7 +79,7 @@ export class EditWebsitePage implements OnDestroy {
     private onDrop(args) {
         let [e, el] = args;
         console.log(e, el);
-        this.optionParts = getOptionPartgs();
+        this.optionParts = getOptionParts();
     }
 
     private onOver(args) {

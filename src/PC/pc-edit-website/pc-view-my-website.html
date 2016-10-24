@@ -1,0 +1,26 @@
+<ion-header>
+	<ion-navbar>
+		<ion-buttons start>
+			<button ion-button (click)="dismiss()">
+                <ion-icon  name="md-close"></ion-icon>
+            </button>
+		</ion-buttons>
+		<ion-title style="text-align:center">
+			预览
+		</ion-title>
+	</ion-navbar>
+</ion-header>
+<ion-content>
+	<div [dragula]='"drag-part"' [dragulaModel]="currentPage.parts" class="row">
+		<div *ngFor="let part of currentPage.parts">
+			<div [ngSwitch]="part.selector">
+				<theme1-navbar *ngSwitchCase="'theme1-navbar'"></theme1-navbar>
+				<theme1-carousel *ngSwitchCase="'theme1-carousel'"></theme1-carousel>
+				<theme1-service *ngSwitchCase="'theme1-service'"></theme1-service>
+				<theme1-recent-works *ngSwitchCase="'theme1-recent-works'"></theme1-recent-works>
+				<theme1-footer *ngSwitchCase="'theme1-footer'"></theme1-footer>
+			</div>
+		</div>
+	</div>
+
+</ion-content>

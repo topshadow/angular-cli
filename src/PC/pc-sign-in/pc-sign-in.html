@@ -1,0 +1,16 @@
+<pc-nav></pc-nav>
+<div class='container'>
+	<div class='form-signin'>
+		<h4 class='form-signin-heading'>用户登录</h4>
+		<input type='text' class='form-control' placeholder='请输入用户名' [(ngModel)]="user.username" required autofocus>
+		<div style='height:10px;clear:both;display:block'></div>
+		<input type='password' class='form-control' placeholder='请输入密码' required [(ngModel)]="user.password">
+		<div class='checkbox'>
+			<label>
+            <input type='checkbox' value='remember-me'> 记住登录状态
+          </label>
+		</div>
+		<button class='btn btn-lg btn-primary btn-block' (click)="signIn()">登录</button>
+	</div>
+	<div class="alert alert-danger" *ngIf="errorMsg">{{errorMsg}}</div>
+</div>

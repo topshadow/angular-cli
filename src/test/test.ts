@@ -1,12 +1,23 @@
+import { } from './index';
+interface OnInit {
+    ngOnInit();
+}
 
-export class TestGroup {
-    results: HTMLElement;
+export class TestGroup extends Object implements OnInit {
+    static re = "";
+    // const 
+    private results: HTMLElement;
     description: string;
     constructor(el: HTMLElement, descrition: string, testGroup: (testGroup: TestGroup) => void) {
+        super();
         this.results = el;
         this.results = <HTMLElement>this.assert(true, descrition).appendChild(document.createElement("ul"));
         // 执行回调函数
         testGroup(this);
+
+    }
+    @Override()
+    ngOnInit() {
 
     }
 
@@ -16,7 +27,6 @@ export class TestGroup {
      * testGroup.assert(true,'第一组第一个测试,一定会通过');
      * testGroup.assert(false,'第一组第二个测试,不会通过)
      * }
-     *   
      * @memberOf Test
      */
     assert(value: boolean, description: string): HTMLElement {
@@ -32,3 +42,10 @@ export class TestGroup {
     }
 }
 
+new TestGroup(document.getElementById('results'), '测试组一', (testGroup) => {
+    testGroup.assert(true, '一定会通过');
+});
+
+// <ul id="ul">
+var ul = <HTMLUListElement>document.getElementById('ul');
+// ul.getElementById();

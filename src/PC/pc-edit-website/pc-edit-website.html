@@ -1,0 +1,38 @@
+<ion-content>
+	<ion-grid>
+		<ion-row>
+			<ion-col>
+				使用说明:
+				<ul>
+					<li>将右侧主题拖放置左侧</li>
+					<li>双击修改数据</li>
+					<li>点击预览,查看效果</li>
+					<li>点击保存,保存你的修改</li>
+					<li>发布,发布你的网站!</li>
+				</ul>
+			</ion-col>
+		</ion-row>
+		<ion-row>
+			<button ion-button color="primary" width-50 (click)="viewMyWebsite()">预览</button>
+			<button ion-button color="primary" width-50 (click)="saveMyWebsite()">保存</button>
+		</ion-row>
+	</ion-grid>
+	<div [dragula]='"drag-part"' [dragulaModel]="currentPage.parts" class="col-xs-5">
+		<div *ngFor="let part of currentPage.parts">
+			<div [ngSwitch]="part.name">
+				<!--<theme1-navbar *ngSwitchCase=" 'theme1-navbar'"></theme1-navbar>-->
+				<img [src]="part.picture" class="img-responsive">
+			</div>
+		</div>
+	</div>
+
+	<div [dragula]='"drag-part"' [dragulaModel]="optionParts" class="col-xs-5">
+		<div *ngFor="let optionPart of optionParts">
+			<div [ngSwitch]="optionPart.name">
+				<!--<theme1-navbar *ngSwitchCase=" 'theme1-navbar'"></theme1-navbar>-->
+				<img [src]="optionPart.picture" class="img-responsive">
+			</div>
+		</div>
+	</div>
+
+</ion-content>

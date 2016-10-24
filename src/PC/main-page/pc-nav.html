@@ -1,0 +1,70 @@
+<header id="header">
+	<div class="top-bar">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-6 col-xs-4">
+					<div class="top-number">
+						<p>
+							<ion-icon ios="ios-phone-portrait" md="md-phone-portrait"></ion-icon>
+							+0123 456 70 90</p>
+					</div>
+				</div>
+				<div class="col-sm-6 col-xs-8">
+					<div class="social">
+						<ul class="social-share">
+							<li>
+								<a>
+									<ion-icon name="logo-facebook"></ion-icon>
+								</a>
+							</li>
+							<li>
+								<a>
+									<ion-icon name="logo-twitter"></ion-icon>
+								</a>
+							</li>
+							<li>
+								<a>
+									<ion-icon name="logo-vimeo"></ion-icon>
+								</a>
+							</li>
+							<li>
+								<a>
+									<ion-icon name="logo-googleplus"></ion-icon>
+								</a>
+							</li>
+						</ul>
+						<div class="search">
+							<button class="btn" (click)="toSignIn()">登录</button>
+							<button class="btn" (click)="toSignUp()">注册</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<nav class="navbar navbar-inverse" role="banner">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+<span class="sr-only">Toggle navigation</span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+</button>
+				<a class="navbar-brand" href="index.html"><img src="http://www.alvye.cn/statics/images/2016/top_logo.png" alt="logo"></a>
+			</div>
+			<div class="collapse navbar-collapse navbar-right">
+				<ul class="nav navbar-nav">
+					<li class="active" (click)="openPage(pages[0])"><a>主页</a></li>
+					<li (click)="openPage(pages[1])">
+						<a>我的站点</a>
+					</li>
+					<li (click)="openPage(pages[2])">
+						<a>模板商城</a>
+					</li>
+					<li (click)="openPage(pages[3])"><a>好友在线</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+</header>

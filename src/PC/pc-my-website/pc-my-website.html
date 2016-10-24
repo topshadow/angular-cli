@@ -1,0 +1,31 @@
+<pc-nav>
+</pc-nav>
+
+<table class="table table-striped">
+	<caption>条纹表格布局</caption>
+	<thead>
+		<tr>
+			<td>网站名</td>
+			<td>二级域名</td>
+			<td>网站地址</td>
+			<td>创建时间</td>
+			<td>操作:
+
+			</td>
+
+		</tr>
+		<tr *ngFor="let website of websites | async">
+			<td>{{website.name}}</td>
+			<td>{{website.SLD}}</td>
+			<td>localhost:4000/{{user.username}}/{{website.name}}</td>
+			<td>{{website.createDt | number2date | date:'yyyy年MM月dd日HH时mm分ss秒' }}</td>
+			<td (click)="action(website)">
+				操作
+			</td>
+		</tr>
+	</thead>
+	<tbody>
+
+
+	</tbody>
+</table>

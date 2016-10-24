@@ -1,3 +1,4 @@
+
 import { Page404 } from './404.page';
 
 import { NumberDatePip, TagPipe, BackgroundImageDirective, PassTimePipe } from '../tools';
@@ -18,6 +19,14 @@ import {
     Theme1Footer
 } from '../themes/index';
 
+// pc 版本
+
+import {
+    MainPage, PcMyWebsite,
+    PcTemplateShop, PcFriends,
+    PcNav, PcSignIn, PcSignUp, PcEditWebsite,
+    PcViewMyWebsite
+} from '../PC/index';
 
 import {
     SignInPage,
@@ -64,7 +73,11 @@ export const firebaseConfig = {
         NewPageModal, FriendsPage, WebsiteListModal,
         Theme1Carousel, Theme1Features, Theme1RecentWorks, Theme1Service,
         Theme1Footer, PublishWebsiteModal, PassTimePipe, Page404,
-        EditNavbarModal, EditPartModal
+        EditNavbarModal, EditPartModal,
+
+        //PC
+        MainPage, PcMyWebsite, PcFriends, PcTemplateShop, PcNav, PcSignIn,
+        PcSignUp, PcEditWebsite, PcViewMyWebsite
     ],
     imports: [
         BrowserModule,
@@ -83,7 +96,11 @@ export const firebaseConfig = {
         TemplateShop, MyWebsitePage,
         ViewWebsitePage, EditWebsitePage, NewPageModal, FriendsPage,
         WebsiteListModal, Theme1Footer, PublishWebsiteModal, Page404,
-        EditNavbarModal, EditPartModal
+        EditNavbarModal, EditPartModal,
+        //
+        MainPage, PcMyWebsite, PcFriends, PcTemplateShop, PcNav, PcSignIn,
+        PcSignUp, PcEditWebsite, PcViewMyWebsite
+
     ]
 })
 export class AppModule { }
