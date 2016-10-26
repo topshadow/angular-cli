@@ -1,0 +1,34 @@
+<ion-header>
+	<ion-title>
+		自定义插件
+	</ion-title>
+</ion-header>
+
+<ion-content>
+
+
+	<textarea class="row" style="width: 100%;margin: 0px 0%;padding: 0px;height: 200px;" (keyup)="changeView(edit.value)" #edit>
+		</textarea>
+
+	<span [innerHTML]="plugin.HTML| htmlsafe">
+		</span>
+	<br>
+	<button ion-button round color="primary" (click)="upload()">上传</button>
+
+	<table>
+		<tr>
+			已经上传的自定义组件
+		</tr>
+		<tr *ngFor="let publishPlugin of publishPlugins | async">
+
+			<span [innerHTML]="publishPlugin.HTML | htmlsafe">
+		</span>
+		</tr>
+	</table>
+
+	<ion-item>
+		高级组件上传: 将文件上传到服务器
+		<ion-input type="file" placeholder="选择你的html,css,js文件"></ion-input>
+	</ion-item>
+
+</ion-content>

@@ -1,0 +1,36 @@
+    
+body {
+	width: 530px;
+	background: #006030;
+	margin: 20px auto
+}
+
+table#gameBoard {
+	border: 1px solid black;
+	border-collapse: collapse;
+	float: left;
+}
+
+table#gameBoard td {
+	width: 30px;
+	height: 30px;
+	border: 1px dotted #0cc;
+}
+
+div#gameControl {
+	widows: 160;
+	float: right;
+	height: 200px;;
+	line-height: 200px;
+}
+
+.font {
+	font-family: '微软雅黑';
+	font-size: 18px;
+	text-align: center;
+}
+
+div input {
+	width: 60px;
+	height: 25px;
+}

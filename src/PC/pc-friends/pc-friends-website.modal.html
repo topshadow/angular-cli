@@ -1,0 +1,31 @@
+<ion-header>
+	<ion-navbar>
+		<ion-buttons start>
+			<button ion-button (click)="dismiss()">
+			<ion-icon name="md-close"></ion-icon>
+	</button>
+		</ion-buttons>
+	</ion-navbar>
+</ion-header>
+<ion-content>
+
+	<ion-grid>
+		<ion-row>
+			<button ion-button full round color="primary" (click)="addWebsite()">添加使用</button>
+		</ion-row>
+	</ion-grid>
+
+	<div *ngFor="let part of currentPage.parts">
+		<div [ngSwitch]="part.selector">
+			<theme1-navbar *ngSwitchCase="'theme1-navbar'" (press)="openEditPartModal(part)" #navbar>
+			</theme1-navbar>
+			<theme1-carousel *ngSwitchCase="'theme1-carousel'">
+			</theme1-carousel>
+			<theme1-recent-works *ngSwitchCase="'theme1-recent-works'"></theme1-recent-works>
+			<theme1-service *ngSwitchCase="'theme1-service'"></theme1-service>
+			<theme1-footer *ngSwitchCase="'theme1-footer'"></theme1-footer>
+			<span *ngSwitchCase="'custom-plugin'" [innerHTML]="part.HTML |htmlsafe"></span>
+		</div>
+	</div>
+
+</ion-content>

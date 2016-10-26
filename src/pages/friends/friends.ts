@@ -15,9 +15,12 @@ export class FriendsPage {
     ) {
         this.af.database.object('users').subscribe(users => {
             // debugger;
-            Object.keys(users).forEach(username => {
+            // 过滤掉$key,$exists
+            Object.keys(users).filter(key => {
+                return key != "$key" && key != "$exists";
+            }).forEach(username => {
                 this.users.push(users[username]);
-            })
+            });
 
         });
     }

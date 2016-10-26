@@ -1,3 +1,4 @@
+import { CustomPlugin } from '../custom-plugin/custom-plugin';
 import { PcSignIn } from '../pc-sign-in/pc-sign-in';
 import { PcSignUp } from '../pc-sign-up/pc-sign-up';
 import { PcTemplateShop } from '../pc-template-shop/pc-template-shop';
@@ -14,7 +15,7 @@ import { MainPage } from '../index';
 })
 export class PcNav {
 
-    pages: Component[] = [MainPage, PcMyWebsite, PcTemplateShop, PcFriends];
+    pages: Component[] = [MainPage, PcMyWebsite, PcTemplateShop, PcFriends, CustomPlugin];
     constructor(private navCtrl: NavController) { }
     toSignIn() {
         this.navCtrl.setRoot(PcSignIn);

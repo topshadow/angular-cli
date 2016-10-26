@@ -1,3 +1,18 @@
 <pc-nav>
 </pc-nav>
-this si pc friends
+<table class="table">
+	<tr>
+		<td>用户名</td>
+		<td>性别</td>
+		<td>个性签名</td>
+		<td>聊天</td>
+		<td>查看网站作品</td>
+	</tr>
+	<tr *ngFor="let user of users">
+		<td>{{user.username}}</td>
+		<td>{{user.gender}}</td>
+		<td>个性签名</td>
+		<td (click)="talkTo(user)"><button ion-button color="primary">与他/她聊天</button></td>
+		<td (click)="viewWebsite(user)"><button ion-button color="primary">查看网站</button></td>
+	</tr>
+</table>

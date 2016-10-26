@@ -1,7 +1,9 @@
-
+import { PcFriendsWebsiteModal } from '../PC/pc-friends/pc-friends-website.modal';
 import { Page404 } from './404.page';
-
-import { NumberDatePip, TagPipe, BackgroundImageDirective, PassTimePipe } from '../tools';
+import {
+    NumberDatePip, TagPipe, BackgroundImageDirective,
+    PassTimePipe, HTMLSafePipe
+} from '../tools';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -16,7 +18,7 @@ import {
     Theme1Navbar, EditNavbarModal,
     Theme1Carousel, Theme1Features,
     Theme1RecentWorks, Theme1Service,
-    Theme1Footer
+    Theme1Footer, Russian
 } from '../themes/index';
 
 // pc 版本
@@ -25,7 +27,7 @@ import {
     MainPage, PcMyWebsite,
     PcTemplateShop, PcFriends,
     PcNav, PcSignIn, PcSignUp, PcEditWebsite,
-    PcViewMyWebsite
+    PcViewMyWebsite, CustomPlugin
 } from '../PC/index';
 
 import {
@@ -74,10 +76,10 @@ export const firebaseConfig = {
         Theme1Carousel, Theme1Features, Theme1RecentWorks, Theme1Service,
         Theme1Footer, PublishWebsiteModal, PassTimePipe, Page404,
         EditNavbarModal, EditPartModal,
-
+        HTMLSafePipe, Russian,
         //PC
         MainPage, PcMyWebsite, PcFriends, PcTemplateShop, PcNav, PcSignIn,
-        PcSignUp, PcEditWebsite, PcViewMyWebsite
+        PcSignUp, PcEditWebsite, PcViewMyWebsite, PcFriendsWebsiteModal, CustomPlugin
     ],
     imports: [
         BrowserModule,
@@ -99,7 +101,7 @@ export const firebaseConfig = {
         EditNavbarModal, EditPartModal,
         //
         MainPage, PcMyWebsite, PcFriends, PcTemplateShop, PcNav, PcSignIn,
-        PcSignUp, PcEditWebsite, PcViewMyWebsite
+        PcSignUp, PcEditWebsite, PcViewMyWebsite, PcFriendsWebsiteModal, CustomPlugin, Russian
 
     ]
 })

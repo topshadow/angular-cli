@@ -7,3 +7,5 @@ export * from './pc-sign-in/pc-sign-in';
 export * from './pc-sign-up/pc-sign-up';
 export * from './pc-edit-website/pc-edit-website';
 export * from './pc-edit-website/pc-view-my-website';
+export * from './pc-friends/pc-friends-website.modal';
+export * from './custom-plugin/custom-plugin';

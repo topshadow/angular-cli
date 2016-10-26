@@ -9,3 +9,7 @@ export * from './theme1/recent-works/recent-works';
 export * from './theme1/service/service';
 export * from './theme1/middle/middle';
 export * from './theme1/footer/footer';
+
+
+// vip theme
+export * from './viptheme/index';

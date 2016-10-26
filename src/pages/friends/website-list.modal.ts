@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { NavParams, AlertController, ViewController } from 'ionic-angular';
+import { NavParams, AlertController, ViewController, ModalController } from 'ionic-angular';
 import { AngularFire, FirebaseListObservable } from 'angularfire2';
+import { ViewWebsitePage } from '../index';
 
 @Component({
     templateUrl: './website-list.modal.html'
@@ -11,7 +12,8 @@ export class WebsiteListModal {
     constructor(navParams: NavParams,
         private af: AngularFire,
         private alertCtrl: AlertController,
-        private viewCtrl: ViewController
+        private viewCtrl: ViewController,
+        private modalCtrl: ModalController
     ) {
         this.user = navParams.data;
         this.websites = this.af.database.list(`users/${this.user.username}/websites`);
@@ -45,7 +47,7 @@ export class WebsiteListModal {
         }).present();
     }
     viewWebsite(website: Website) {
-
+        this.modalCtrl.create(ViewWebsitePage, website).present();
     }
     dismiss() {
         this.viewCtrl.dismiss();

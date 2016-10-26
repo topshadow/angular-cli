@@ -6,10 +6,10 @@ sign up
 <div class='container'>
 	<form action='#' class='form-signin' role='form'>
 		<h4 class='form-signin-heading'>用户登录</h4>
-		<input type='text' class='form-control' placeholder='请输入用户名' required autofocus>
+		<input type='text' class='form-control' placeholder='请输入用户名' [(ngModel)]="user.username" required autofocus>
 		<div style='height:10px;clear:both;display:block'></div>
-		<input type='password' class='form-control' placeholder='请输入密码' required>
-		<input type='passwowrd' class='form-control' placeholder="重复密码" required>
+		<input type='password' class='form-control' placeholder='请输入密码' [(ngModel)]="user.password" required>
+		<input type='passwowrd' class='form-control' placeholder="重复密码" (change)="checkRepeatPassword($event)" required>
 		<div class='checkbox'>
 			<label>
             <input type='checkbox' value='remember-me'> 记住登录状态

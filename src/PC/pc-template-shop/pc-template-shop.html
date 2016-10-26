@@ -1,3 +1,32 @@
-<pc-nav>
-</pc-nav>
-this is pc tempalte-shop
+<ion-header>
+
+	<ion-title>模板商城</ion-title>
+
+</ion-header>
+
+<ion-content>
+	<pc-nav>
+	</pc-nav>
+	<table class="table">
+		<tr>
+			<td>发布者</td>
+			<td>发布时间</td>
+			<td>预览</td>
+			<td>添加</td>
+			<td>查看作者</td>
+			<td>喜欢</td>
+		</tr>
+		<tr *ngFor="let website of publish | async">
+			<td>{{website.publisher}}</td>
+			<td>{{website.publishDt | number2date | date:'yyyy年MM月dd日HH时mm分ss秒'}}</td>
+			<td><button ion-button full round color="primary" (click)="preview(website)">预览</button> </td>
+			<td><button ion-button full round color="primary" (click)="add(website)">添加</button></td>
+			<td><button ion-button full round color="secondary" (click)="viewPublisher(website.publisher)">查看作者</button></td>
+			<td> <button ion-button color="primary" clear small icon-left (click)="like()">
+        <ion-icon name="heart"></ion-icon>
+        </button>
+			</td>
+		</tr>
+	</table>
+
+</ion-content>

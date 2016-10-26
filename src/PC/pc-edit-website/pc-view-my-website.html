@@ -19,6 +19,8 @@
 				<theme1-service *ngSwitchCase="'theme1-service'"></theme1-service>
 				<theme1-recent-works *ngSwitchCase="'theme1-recent-works'"></theme1-recent-works>
 				<theme1-footer *ngSwitchCase="'theme1-footer'"></theme1-footer>
+
+				<span *ngSwitchCase="'custom-plugin'" [innerHTML]="part.HTML |htmlsafe"></span>
 			</div>
 		</div>
 	</div>

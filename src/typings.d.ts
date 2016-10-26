@@ -49,9 +49,15 @@ interface Website {
 
     //firebase的$key,$value引用,用于update
     tag: string;
+
+
+
+    // 发布网站的需填写的属性
     publisher?: string;
 
     publishDt?: number;
+
+    publishSummary?: string;
 
     $key?: string;
     $value?: string;
@@ -65,4 +71,17 @@ interface Part {
     selector: string;
     content?: any;
     styles?: any;
+}
+
+
+interface Theme {
+    name: string;
+    optionParts: Part[];
+}
+
+interface MyPlugin {
+    selector: 'custom-plugin';
+    name?: string;
+    description?: string;
+    HTML: any;
 }

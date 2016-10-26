@@ -1,3 +1,14 @@
+<ion-header>
+	<ion-navbar>
+		<ion-buttons start>
+			<button ion-button (click)="back()">
+				<ion-icon name="menu"></ion-icon>
+			</button>
+		</ion-buttons>
+		<ion-title>编辑网站</ion-title>
+
+	</ion-navbar>
+</ion-header>
 <ion-content>
 	<ion-grid>
 		<ion-row>
@@ -13,24 +24,36 @@
 			</ion-col>
 		</ion-row>
 		<ion-row>
-			<button ion-button color="primary" width-50 (click)="viewMyWebsite()">预览</button>
-			<button ion-button color="primary" width-50 (click)="saveMyWebsite()">保存</button>
+			<button ion-button color="primary" (click)="viewMyWebsite()">预览</button>
+			<button ion-button color="primary" (click)="saveMyWebsite()">保存</button>
+			<ion-item>
+				<ion-label>主题:</ion-label>
+				<ion-select (ionChange)="selectTheme($event)">
+					<ion-option value="基本主题">基本主题</ion-option>
+					<ion-option value="商业网站主题">商业主题</ion-option>
+					<ion-option value="自定义主题">自定义插件主题</ion-option>
+				</ion-select>
+
+			</ion-item>
 		</ion-row>
 	</ion-grid>
 	<div [dragula]='"drag-part"' [dragulaModel]="currentPage.parts" class="col-xs-5">
 		<div *ngFor="let part of currentPage.parts">
-			<div [ngSwitch]="part.name">
+			<div [ngSwitch]="part.selector">
 				<!--<theme1-navbar *ngSwitchCase=" 'theme1-navbar'"></theme1-navbar>-->
-				<img [src]="part.picture" class="img-responsive">
+				<span *ngSwitchCase="'custom-plugin'" [innerHTML]="part.HTML |htmlsafe"></span>
+				<img *ngSwitchDefault [src]="part.picture" class="img-responsive">
+
 			</div>
 		</div>
 	</div>
 
 	<div [dragula]='"drag-part"' [dragulaModel]="optionParts" class="col-xs-5">
 		<div *ngFor="let optionPart of optionParts">
-			<div [ngSwitch]="optionPart.name">
+			<div [ngSwitch]="optionPart.selector">
 				<!--<theme1-navbar *ngSwitchCase=" 'theme1-navbar'"></theme1-navbar>-->
-				<img [src]="optionPart.picture" class="img-responsive">
+				<span *ngSwitchCase="'custom-plugin'" [innerHTML]="optionPart.HTML |htmlsafe"></span>
+				<img *ngSwitchDefault [src]="optionPart.picture" class="img-responsive">
 			</div>
 		</div>
 	</div>

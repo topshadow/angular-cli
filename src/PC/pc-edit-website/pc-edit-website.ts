@@ -18,7 +18,31 @@ export class PcEditWebsite implements AfterViewInit, OnDestroy {
     @ViewChild(Menu) menu: Menu;
     website: Website;
     currentPage: Page;
-    optionParts: Part[] = getOptionParts();
+    optionParts: Part[];
+    restoreOptionParts: () => Part[];
+
+    selectTheme(themename: string) {
+        switch (themename) {
+            case '基本主题':
+                this.restoreOptionParts = getOptionParts;
+                this.optionParts = getOptionParts();
+                break;
+            case '商业网站主题':
+                this.restoreOptionParts = getOptionParts;
+                this.optionParts = getOptionParts();
+                break;
+            case '自定义主题':
+                this.af.database.list('plugin').subscribe(publishPlugins => {
+                    this.restoreOptionParts = () => publishPlugins;
+                    this.optionParts = publishPlugins;
+                });
+                debugger;
+                break;
+        }
+
+    }
+
+
     constructor(private navCtrl: NavController,
         navParams: NavParams,
         private dragulaService: DragulaService,
@@ -48,6 +72,11 @@ export class PcEditWebsite implements AfterViewInit, OnDestroy {
             console.log(`out${value[0]}`);
             this.onOut(value.slice(1));
         });
+        this.selectTheme('基本主题');
+    }
+
+    back() {
+        this.navCtrl.pop();
     }
 
     ngAfterViewInit() {
@@ -66,9 +95,9 @@ export class PcEditWebsite implements AfterViewInit, OnDestroy {
                     text: '确定'
                 }]
             }).present();
-
         });
     }
+
     ngOnDestroy() {
         this.dragulaService.destroy('drag-part');
     }
@@ -76,13 +105,13 @@ export class PcEditWebsite implements AfterViewInit, OnDestroy {
     private onDrag(args) {
         let [e, el] = args;
         console.log(e, el);
-        this.optionParts = getOptionParts();
+        this.optionParts = this.restoreOptionParts();
     }
 
     private onDrop(args) {
         let [e, el] = args;
         console.log(e, el);
-        this.optionParts = getOptionParts();
+        this.optionParts = this.restoreOptionParts();
     }
 
     private onOver(args) {
@@ -92,10 +121,7 @@ export class PcEditWebsite implements AfterViewInit, OnDestroy {
     private onOut(args) {
         let [e, el] = args;
         console.log(e, el);
-        this.optionParts = getOptionParts();
+        this.optionParts = this.restoreOptionParts();
     }
-
-
-
 
 }
