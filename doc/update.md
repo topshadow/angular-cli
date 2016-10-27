@@ -24,3 +24,7 @@
 将用户想要的网站推送到用户手机上,
 用户填写类似于公司类型,公司业务,个人喜好，
 定期推送这些标签网页
+
+将组件渲染封装成指令或者组件
+<view [parts]="currentPageParts"></view>
+<view [parts]="optionParts"></view>

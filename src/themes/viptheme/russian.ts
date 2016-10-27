@@ -1,88 +1,89 @@
+import { Theme1Service } from '../';
 
 // oDomBoard
 const gameBoardId = "gameBoard";
 const scoreDomId = "score";
 
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef } from '@angular/core';
 
 @Component({
     selector: 'russian',
     templateUrl: './russian.html',
-    styleUrls: ['russian.scss']
+    styleUrls: ['./russian.scss']
+
 })
-export class Russian implements OnInit {
-    teris: TERIS;
-    constructor() {
+export class Russian {
+    static ROWS = 18;
+    static COLS = 10;
+    currentBlock: Block;
+    timmer;
+    static ShapesOption: [[Cell]] = [
+        // 方块田
+        [{ x: 4, y: 0 }, { x: 4, y: 1 }, { x: 5, y: 0 }, { x: 5, y: 1 }]
+        // new Block({x:})
+    ];
 
+    grid: any[][];
+    constructor(private el: ElementRef) {
+        this.initGrid(Russian.ROWS, Russian.COLS);
+    }
 
-    }
-    ngOnInit() {
-        this.teris = new TERIS();
-    }
-
-}
-
-class DomBoard {
-    private element: HTMLElement
-    constructor(element: HTMLElement) {
-        this.element = element;
-    }
-    insertRow(position: number): DomTableRow {
-        return new DomTableRow();
-    }
-}
-
-class DomGrid {
-    private cells: any[][];
-    public get row() {
-        return this.cells.length;
-    }
     /**
-     * 创建一个网格
-     * @param {number} x 行
-     * @param {number} y 列
+     * 初始化俄罗斯方块,ROWS行数,COLS是列数
      * 
-     * @memberOf DomGrid
+     * @param {number} ROWS
+     * @param {number} COLS
+     * 
+     * @memberOf Russian
      */
-    constructor(x: number, y: number) {
-        this.cells = new Array();
-        for (var row = 0; row < x; row++) {
-            var oneRow = new Array()
-            for (var col = 0; col < y; col++) {
-                oneRow.push(0);
+    initGrid(ROWS: number, COLS: number) {
+        this.grid = [];
+        for (let row = 0; row < ROWS; row++) {
+            var tempCol = [];
+            for (let col = 0; col < COLS; col++) {
+                tempCol.push(false);
             }
-            this.cells.push(oneRow);
-        }
-        this.render();
-    }
-    render() {
-        var gameBoardDom: HTMLTableElement = <HTMLTableElement>document.getElementById(gameBoardId);
-        for (let row = 0; row < this.cells.length; row++) {
-            debugger;
-            let rowDom: HTMLTableRowElement = gameBoardDom.insertRow(-1);
-
-            for (let col = 0; col < this.cells[row].length; col++) {
-                rowDom.insertCell(col);
-            }
-
+            this.grid.push(tempCol);
         }
     }
-}
 
-class DomTableRow {
-    insertCell(cols: number) {
-
+    start() {
+        if (this.timmer) return;
+        this.timmer = setInterval(() => {
+            this.next()
+        }, 1000);
     }
+    stop() {
+        clearInterval(this.timmer);
+        this.timmer = null;
+    }
+
+    next() {
+        this.currentBlock = new Block(Russian.ShapesOption[0]);
+        // 消除原有的cell true;
+
+        this.currentBlock.moveDown();
+        this.currentBlock.cells.forEach(cell => {
+            this.grid[cell.y - 2][cell.x] = false;
+        });
+
+        this.draw();
+    }
+
+    draw() {
+        // 绘画当前的俄罗斯方块
+
+        this.currentBlock.cells.forEach((value: { x: number, y: number }) => {
+            console.log(`俄罗斯方块的水平位置${value.x}竖直位置是: ${value.y}`);
+            this.grid[value.y][value.x] = true;
+        })
+    }
+
 }
 
-class DomScore {
-    private element: HTMLElement;
-    constructor(element: HTMLElement) {
-        this.element = element;
-    }
-}
 
 class Block {
+    cells: Cell[];
     moveLeft() {
         console.log('block move left');
     }
@@ -94,57 +95,22 @@ class Block {
         console.log('block move right');
     }
     moveDown() {
-        console.log('block move down');
+        this.cells.forEach(cell => {
+
+            cell.y++;
+        });
+    }
+    constructor(cells: { x: number, y: number }[]) {
+        this.cells = cells;
     }
 }
 
-class TERIS {
-    board: DomBoard;
-    score: DomScore;
-    block: Block;
-    grid: DomGrid;
-    aShape = [
-        [0xCC00],
-        [0x8888, 0xF00],
-        [0x8C40, 0x6C00],
-        [0x4C80, 0xC600],
-        [0x44C0, 0x8E00, 0xC880, 0xE200],
-        [0x88C0, 0xE800, 0xC440, 0x2E00],
-        [0x4E00, 0x8C80, 0xE400, 0x4C40]
-    ];
-    constructor() {
-        this.board = new DomBoard(document.getElementById(gameBoardId));
-        this.score = new DomScore(document.getElementById(scoreDomId));
+interface Cell {
+    x: number;
+    y: number;
 
-        this.grid = new DomGrid(18, 10);
-        for (var rows = 0; rows < 18; rows++) {
-            this.grid[rows] = new Array(10);
-            var tr = this.board.insertRow(-1);
-            for (var cols = 0; cols < 10; cols++) {
-                this.grid[rows][cols] = 0;
-                tr.insertCell(cols);
-            }
-        }
-        document.onkeydown = (keyEvent: KeyboardEvent) => {
-            keyEvent = <KeyboardEvent>(keyEvent || window.event);
-            var ikeyNum = keyEvent.which || keyEvent.keyCode;
-            switch (ikeyNum) {
-                case 37://←    
-                    this.block.moveLeft();
-                    break;
-                case 38://↑     
-                    this.block.rotate();
-                    break;
-                case 39://→    
-                    this.block.moveRight();
-                    break;
-                case 40://↓    
-                    this.block.moveDown();
-                    break;
-            }
-        };
 
-    }
 }
+
 
 

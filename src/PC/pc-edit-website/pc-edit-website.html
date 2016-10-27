@@ -32,6 +32,7 @@
 					<ion-option value="基本主题">基本主题</ion-option>
 					<ion-option value="商业网站主题">商业主题</ion-option>
 					<ion-option value="自定义主题">自定义插件主题</ion-option>
+					<ion-option value="高级主题">高级主题</ion-option>
 				</ion-select>
 
 			</ion-item>
@@ -43,6 +44,7 @@
 				<!--<theme1-navbar *ngSwitchCase=" 'theme1-navbar'"></theme1-navbar>-->
 				<span *ngSwitchCase="'custom-plugin'" [innerHTML]="part.HTML |htmlsafe"></span>
 				<img *ngSwitchDefault [src]="part.picture" class="img-responsive">
+				<russian *ngSwitchCase="'russian'"></russian>
 
 			</div>
 		</div>
@@ -53,6 +55,8 @@
 			<div [ngSwitch]="optionPart.selector">
 				<!--<theme1-navbar *ngSwitchCase=" 'theme1-navbar'"></theme1-navbar>-->
 				<span *ngSwitchCase="'custom-plugin'" [innerHTML]="optionPart.HTML |htmlsafe"></span>
+				<russian *ngSwitchCase="'russian'"></russian>
+
 				<img *ngSwitchDefault [src]="optionPart.picture" class="img-responsive">
 			</div>
 		</div>

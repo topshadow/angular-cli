@@ -1,5 +1,14 @@
-<table id="gameBoard"></table>
-<div id="gameControl">
-	Score ： <span id="score">0</span><br /> <input type="button" id="btnPlay" value="begin" /> <input type="button" id="btnPause"
-		value="pause" /><br /> <span>俄罗斯方块</span>
+<div style="background:#006030">
+	<table id="gameBoard" class="center">
+		<tr *ngFor="let row of grid;let i=index;">
+			<td *ngFor="let col of row" [class.active]="col">
+
+			</td>
+		</tr>
+	</table>
+	<div id="gameControl" class="center">
+		Score ： <span id="score" class="btn btn-primary btn-block">0</span><br />
+		<input type="button" id="btnPlay" value="begin" ion-button color="primary" (click)="start()" />
+		<input type="button" id="btnPause" value="pause" ion-button color="secondary" (click)="stop()" /><br /> <span>俄罗斯方块</span>
+	</div>
 </div>
