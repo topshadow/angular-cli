@@ -27,6 +27,9 @@ export var getOptionParts = (): Part[] => {
     ];
 }
 
+//选择的主题
+import { getVipOptions, getAppOptions } from '../../PC/index'
+
 @Component({
     templateUrl: './edit-website.html'
 })
@@ -35,6 +38,7 @@ export class EditWebsitePage implements OnDestroy {
     selectedPage: Page;
     currentPage: Page;
     optionParts: Part[] = getOptionParts();
+    restoreOptionParts: () => Part[];
 
     constructor(private navParams: NavParams,
         private modalCtrl: ModalController,
@@ -65,7 +69,29 @@ export class EditWebsitePage implements OnDestroy {
             console.log(`out${value[0]}`);
             this.onOut(value.slice(1));
         });
+        this.selectTheme("APP主题");
 
+    }
+    selectTheme(theme: string) {
+        switch (theme) {
+            case "基本主题":
+                this.optionParts = getOptionParts();
+                this.restoreOptionParts = getOptionParts;
+                break;
+            case "商业主题":
+                this.optionParts = getOptionParts();
+                this.restoreOptionParts = getOptionParts;
+                break;
+            case "自定义主题":
+                this.optionParts = getVipOptions();
+                this.restoreOptionParts = getVipOptions;
+                break;
+            case "APP主题":
+                this.optionParts = getAppOptions();
+                this.restoreOptionParts = getAppOptions;
+                break;
+
+        }
     }
 
     ngOnDestroy() {
@@ -74,21 +100,24 @@ export class EditWebsitePage implements OnDestroy {
     private onDrag(args) {
         let [e, el] = args;
         console.log(e, el);
+        this.optionParts = this.restoreOptionParts();
     }
 
     private onDrop(args) {
         let [e, el] = args;
         console.log(e, el);
-        this.optionParts = getOptionParts();
+        this.optionParts = this.restoreOptionParts();
+
     }
 
     private onOver(args) {
         let [e, el] = args;
         console.log(e, el);
+        this.optionParts = this.restoreOptionParts();
     }
     private onOut(args) {
         let [e, el] = args;
-        console.log(e, el);
+        this.optionParts = this.restoreOptionParts();
     }
 
     dismiss() {

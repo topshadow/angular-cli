@@ -33,6 +33,7 @@
 					<ion-option value="商业网站主题">商业主题</ion-option>
 					<ion-option value="自定义主题">自定义插件主题</ion-option>
 					<ion-option value="高级主题">高级主题</ion-option>
+					<ion-option value="APP主题">APP主题</ion-option>
 				</ion-select>
 
 			</ion-item>
@@ -45,6 +46,20 @@
 				<span *ngSwitchCase="'custom-plugin'" [innerHTML]="part.HTML |htmlsafe"></span>
 				<img *ngSwitchDefault [src]="part.picture" class="img-responsive">
 				<russian *ngSwitchCase="'russian'"></russian>
+				<ion-item-group *ngSwitchCase="'list'">
+					<ion-item-divider light>A</ion-item-divider>
+					<ion-item>Angola</ion-item>
+					<ion-item>Argentina</ion-item>
+				</ion-item-group>
+				<ion-item *ngSwitchCase="'thumbnail'">
+					<ion-thumbnail item-left>
+						<img src="http://ionicframework.com/dist/preview-app/www/assets/img/venkman.jpg">
+					</ion-thumbnail>
+					<h2>Raiders of the Lost Ark</h2>
+					<p>Steven Spielberg • 1981</p>
+					<button ion-button clear item-right>View</button>
+				</ion-item>
+
 
 			</div>
 		</div>
@@ -56,8 +71,20 @@
 				<!--<theme1-navbar *ngSwitchCase=" 'theme1-navbar'"></theme1-navbar>-->
 				<span *ngSwitchCase="'custom-plugin'" [innerHTML]="optionPart.HTML |htmlsafe"></span>
 				<russian *ngSwitchCase="'russian'"></russian>
-
 				<img *ngSwitchDefault [src]="optionPart.picture" class="img-responsive">
+				<ion-item-group *ngSwitchCase="'list'">
+					<ion-item-divider light>A</ion-item-divider>
+					<ion-item>Angola</ion-item>
+					<ion-item>Argentina</ion-item>
+				</ion-item-group>
+				<ion-item *ngSwitchCase="'thumbnail'">
+					<ion-thumbnail item-left>
+						<img src="http://ionicframework.com/dist/preview-app/www/assets/img/venkman.jpg">
+					</ion-thumbnail>
+					<h2>Raiders of the Lost Ark</h2>
+					<p>Steven Spielberg • 1981</p>
+					<button ion-button clear item-right>View</button>
+				</ion-item>
 			</div>
 		</div>
 	</div>

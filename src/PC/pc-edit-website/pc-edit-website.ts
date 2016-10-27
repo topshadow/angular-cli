@@ -10,8 +10,10 @@ import { PcViewMyWebsite } from './pc-view-my-website';
 import { getOptionParts } from '../../pages/index';
 import { AngularFire } from 'angularfire2';
 
-var getVipOptions = () => [{ selector: 'russian', picture: '' }];
-
+export var getVipOptions = () => [{ selector: 'russian', picture: '' }];
+export var getAppOptions = () => [{ selector: 'list', picture: '' }, {
+    selector: 'thumbnail', picture: ''
+}];
 
 @Component({
     templateUrl: './pc-edit-website.html'
@@ -43,6 +45,10 @@ export class PcEditWebsite implements AfterViewInit, OnDestroy {
             case '高级主题':
                 this.restoreOptionParts = getVipOptions;
                 this.optionParts = getVipOptions();
+                break;
+            case 'APP主题':
+                this.restoreOptionParts = getAppOptions;
+                this.optionParts = getAppOptions();
                 break;
 
         }

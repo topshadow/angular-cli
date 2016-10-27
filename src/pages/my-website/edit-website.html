@@ -25,23 +25,59 @@
 				添加页面</button>
 		</ion-card-content>
 	</ion-card>
-	<!--显示select 切换页面-->
-
+	<ion-item>
+		<ion-label>选择网站</ion-label>
+		<!--显示select 切换页面-->
+		<ion-select (ionChange)="selectTheme(theme)">
+			<ion-option value="基本主题">基本主题</ion-option>
+			<ion-option value="高级主题">高级主题</ion-option>
+			<ion-option value="自定义主题">自定义主题</ion-option>
+			<ion-option value="APP主题">APP主题</ion-option>
+		</ion-select>
+	</ion-item>
 
 	<div [dragula]='"drag-part"' [dragulaModel]="currentPage.parts" class="col-xs-6">
 		<div *ngFor="let part of currentPage.parts">
-			<div [ngSwitch]="part.name">
+			<div [ngSwitch]="part.selector">
 				<!--<theme1-navbar *ngSwitchCase=" 'theme1-navbar'"></theme1-navbar>-->
 				<img [src]="part.picture" class="img-responsive">
+				<ion-list *ngSwitchCase="'list'">
+					<ion-item-divider light>A</ion-item-divider>
+					<ion-item>Angola</ion-item>
+					<ion-item>Argentina</ion-item>
+				</ion-list>
+				<ion-list *ngSwitchCase="'thumbnail'">
+					<ion-item>
+						<ion-thumbnail item-left>
+							<img src="http://ionicframework.com/dist/preview-app/www/assets/img/venkman.jpg">
+						</ion-thumbnail>
+						<h2>Raiders of the Lost Ark</h2>
+						<p>Steven Spielberg • 1981</p>
+						<button ion-button clear item-right>View</button>
+					</ion-item>
+				</ion-list>
 			</div>
 		</div>
 	</div>
 
 	<div [dragula]='"drag-part"' [dragulaModel]="optionParts" class="col-xs-6">
 		<div *ngFor="let optionPart of optionParts">
-			<div [ngSwitch]="optionPart.name">
+			<div [ngSwitch]="optionPart.selector">
 				<!--<theme1-navbar *ngSwitchCase=" 'theme1-navbar'"></theme1-navbar>-->
 				<img [src]="optionPart.picture" class="img-responsive">
+				<ion-list *ngSwitchCase="'list'">
+					<ion-item-divider light>A</ion-item-divider>
+					<ion-item>Angola</ion-item>
+					<ion-item>Argentina</ion-item>
+				</ion-list>
+				<ion-list *ngSwitchCase="'thumbnail'">
+					<ion-thumbnail item-left>
+						<img src="http://ionicframework.com/dist/preview-app/www/assets/img/venkman.jpg">
+					</ion-thumbnail>
+					<h2>Raiders of the Lost Ark</h2>
+					<p>Steven Spielberg • 1981</p>
+					<button ion-button clear item-right>View</button>
+				</ion-list>
 			</div>
 		</div>
 	</div>

@@ -22,6 +22,19 @@
 			<theme1-service *ngSwitchCase="'theme1-service'"></theme1-service>
 			<theme1-footer *ngSwitchCase="'theme1-footer'"></theme1-footer>
 			<russian *ngSwitchCase="'russian'"></russian>
+			<ion-item-group *ngSwitchCase="'list'">
+				<ion-item-divider light>A</ion-item-divider>
+				<ion-item>Angola</ion-item>
+				<ion-item>Argentina</ion-item>
+			</ion-item-group>
+			<ion-item *ngSwitchCase="'thumbnail'">
+				<ion-thumbnail item-left>
+					<img src="http://ionicframework.com/dist/preview-app/www/assets/img/venkman.jpg">
+				</ion-thumbnail>
+				<h2>Raiders of the Lost Ark</h2>
+				<p>Steven Spielberg • 1981</p>
+				<button ion-button clear item-right>View</button>
+			</ion-item>
 		</div>
 
 	</div>
